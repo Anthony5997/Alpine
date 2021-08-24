@@ -1,0 +1,407 @@
+{
+    "version":{
+       "pure":{
+          "price":54700,
+            "characteristic":[
+               {
+               "color":"white",
+               "price":0,
+                "rims":[{
+                   "model":"standard",
+                      "price":0,
+                      "pictures":[
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (1).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (2).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (3).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (4).jpg"
+                      ]
+                   },
+                   {
+                   "model": "serac",
+                      "price":1000,
+                      "pictures":[
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (1).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (2).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (3).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (4).jpg"
+                      ]
+                   }
+                  ]
+                },
+             {
+               "color":"black",
+               "price":840,
+                "rims":[{
+                   "model":"standard",
+                      "price":0,
+                      "pictures":[
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (1).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (2).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (3).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (4).jpg"
+                      ]
+                   },
+                   {
+                   "model": "serac",
+                      "price":1000,
+                      "pictures":[
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (1).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (2).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (3).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (4).jpg"
+                      ]
+                   }
+                  ]
+             },
+             {
+             "color":"blue",
+                "price":1800,
+                "rims":[{
+                   "model":"standard",
+                      "price":0,
+                      "pictures":[
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (1).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (2).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (3).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (4).jpg"
+                      ]
+                   },
+                   {
+                   "model":"serac",
+                      "price":1000,
+                      "pictures":[
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (1).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (2).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (3).jpg",
+                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (4).jpg"
+                      ]
+                   }]
+                }
+         ],    
+          "sealing":{
+            "characteristic":[
+               {
+                "name":"Sièges baquets en cuir noir et Dinamica",
+                "price":0,
+                "picture":"/AlpineCars_app-images/configurateur/interieurs/selection/cuir-noir_dinamica.jpg",
+                "views":[
+                   "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir_dinamica-1.jpg",
+                   "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir_dinamica-2.jpg",
+                   "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir_dinamica-3.jpg"
+                ]
+             },
+             {
+                "name":"Sièges Confort en cuir noir perforé",
+                "price":800,
+                "picture":"/AlpineCars_app-images/configurateur/interieurs/selection/cuir-noir_perfore.jpg",
+                "views":[
+                   "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir_perfore-1.jpg",
+                   "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir_perfore-2.jpg",
+                   "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir_perfore-3.jpg"
+                ]
+             }
+            ]
+          }
+         }
+         ,
+       "legende":{
+          "price":58500,
+          "characteristic":[
+             {
+               "color":"white",
+                "price":0,
+                "rims":[{
+                   "model": "standard",
+                      "price":0,
+                      "pictures":[
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-1.jpg",
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-2.jpg",
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-3.jpg",
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-4.jpg"
+                      ]
+                   }
+                  ]
+                },
+                {
+                "color":"black",
+                "price":840,
+                "rims":[{
+                   "model": "standard",
+                      "price":0,
+                      "pictures":[
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-1.jpg",
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-2.jpg",
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-3.jpg",
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-4.jpg"
+                      ]
+                   }]
+                },
+             {
+             "color":"blue",
+                "price":1800,
+                "rims":[{
+                  "model": "standard",
+                      "price":0,
+                      "pictures":[
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-1.jpg",
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-2.jpg",
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-3.jpg",
+                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-4.jpg"
+                      ]
+                   }]
+                }],
+            
+          "sealing":{
+            "characteristic":[
+                {
+                   "name":"Sièges Confort en cuir noir",
+                   "price":0,
+                   "picture":"/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/selection/cuir-noir.jpg",
+                   "views":[
+                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir-1.jpg",
+                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir-2.jpg",
+                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir-3.jpg"
+                   ]
+                },
+                {
+                   "name":"Sièges Confort en cuir brun",
+                   "price":800,
+                   "picture":"/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/selection/cuir-brun.jpg",
+                   "views":[
+                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-brun-1.jpg",
+                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-brun-2.jpg",
+                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-brun-3.jpg"
+                   ]
+                }]
+          }
+       },
+    "option":{
+       "equipment":{
+          "design":[
+             {
+                "name":"Pack héritage",
+                "price":180,
+                "picture":"/AlpineCars_app-images/configurateur/equipements/categories/design/pack-heritage.jpg"
+             },
+             {
+                "name":"Repose-pieds passager en aluminium",
+                "price":96,
+                "picture":"/AlpineCars_app-images/configurateur/equipements/categories/design/repose-pied-alu.jpg"
+             }],
+
+
+          "mediaAndNavigation":{
+             "telemetrics":{
+                "name":"Alpine Télémétrics",
+                "price":204,
+                "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/alpine-metrics.jpg"
+             },
+             "audioSystem":[{
+                "model":"standard",
+                   "name":"Système Audio standard",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/audio-standard.jpg"
+                },
+                {
+                "model":"focal",
+                   "name":"Système Audio Focal",
+                   "price":600,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/audio-focal.jpg"
+                },
+                {
+                "model":"focalPremium",
+                   "name":"Système Audio Focal Premium",
+                   "price":1200,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/audio-premium.jpg"
+                }
+             ]
+            },
+             "confort":[
+                {
+                   "name":"Retroviseur intérieur électrochrome",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/retro-int-electrochrome.jpg"
+                },
+                {
+                   "name":"Rétroviseurs ext. chauf. rabattables élec.",
+                   "price":504,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/retro-ext-chaffant.jpg"
+                },
+                {
+                   "name":"Pack de rangement",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/pack-rangement.jpg"
+                },
+                {
+                   "name":"Régulateur / limiteur de vitesse",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/regul-limit-vitesse.jpg"
+                }
+             ],
+             "driving":{
+                "parkAssist":[{
+                   
+                      "name":"Aide au stationnement AR",
+                      "price":420,
+                      "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/aide-stationnement-ar.jpg"
+                   },
+                   {
+                      "name":"Aide au stationnement AV et AR",
+                      "price":750,
+                      "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/aide-stationnement-av-ar.jpg"
+                   },
+                   {
+                      "name":"Aide au stationnement AV AR et caméra de recul",
+                      "price":1200,
+                      "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/camera-recul.jpg"
+                   }
+                ],
+                "exhaust":{
+                   "name":"Echappement Sport actif",
+                   "price":1500,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/echappement-sport.jpg"
+                }
+             },
+             "safety":{
+                "brake":[{
+                      "name":"Système de freinage Haute-Perf 320mm",
+                      "price":1000,
+                      "picture":"/AlpineCars_app-images/configurateur/equipements/categories/securite/freinage-haute-perf.jpg"
+                   },
+                   {
+                      "name":"Assistance au freinage d'urgence",
+                      "price":0,
+                      "picture":"/AlpineCars_app-images/configurateur/equipements/categories/securite/aide-freinage-durgence.jpg"
+                   }
+                ],
+                "airbag":{
+                   "name":"Airbags frontaux conducteur et passager",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/securite/airbag.jpg"
+                }
+             },
+             "extCustom":{
+               "equipements":[{
+                "brakeCaliper":[{
+                   "color":"blue",
+                         "name":"Etriers de frein couleur Bleu Alpine",
+                         "price":384,
+                         "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/etrier-bleu.jpg"
+                      },
+                      {
+                      "color":"grey",
+                         "name":"Etriers de frein couleur Gris Anthracite",
+                         "price":0,
+                         "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/etrier-gris.jpg"
+                      }
+                   ]
+               },
+               {
+                "logo":{
+                   "name":"Logo Alpine sur les ailes avant",
+                   "price":120,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/logo-alpine.jpg"
+                }
+               }
+             ]
+             },
+             "innCustom":{
+                "equipements":[{
+                   "name":"Pédalier en aluminium",
+                   "price":120,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/pedal-alu.jpg"
+                },
+                {
+                   "name":"Harmonie carbone mat",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/pack-carbone.jpg"
+                },
+                {
+                   "name":"Logo au centre du volant en Bleu Alpine",
+                   "price":84,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/logo-volant.jpg"
+                },
+                {
+                   "name":"Sièges chauffants",
+                   "price":400,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/siege-chauffant.jpg"
+                }
+               ]
+             }
+          },
+          "accessories":{
+             "transportAndProtection":[{
+                   "name":"Extincteur 1kg avec manomètre",
+                   "price":22,
+                   "picture":"/AlpineCars_app-images/configurateur/accessoires/transport et protection/extincteur.jpg"
+                },
+                {
+                   "name":"Chaine à neige Premium Grip",
+                   "price":336,
+                   "picture":"/AlpineCars_app-images/configurateur/accessoires/transport et protection/chaaine-neige.jpg"
+                },
+                {
+                   "name":"Alarme",
+                   "price":543,
+                   "picture":"/AlpineCars_app-images/configurateur/accessoires/transport et protection/alarme.jpg"
+                },
+                {
+                   "name":"Protection Prise OBD",
+                   "price":99,
+                   "picture":"/AlpineCars_app-images/configurateur/accessoires/transport et protection/protection-obd.jpg"
+                },
+                {
+                   "name":"Kit de sécurité",
+                   "price":20,
+                   "picture":"/AlpineCars_app-images/configurateur/accessoires/transport et protection/kit-securite.jpg"
+                },
+                {
+                   "name":"Fixation extincteur",
+                   "price":72,
+                   "picture":"/AlpineCars_app-images/configurateur/accessoires/transport et protection/fixation-extincteur.jpg"
+                }
+               ],
+             "multimedia":{
+                "support":[{
+                      "name":"Support caméra sport",
+                      "price":89,
+                      "picture":"/AlpineCars_app-images/configurateur/accessoires/multimedia/support-camera.jpg"
+                   },
+                   {
+                      "name":"Support smartphone magnétique - Fixation sur tableau de bord",
+                      "price":21,
+                      "picture":"/AlpineCars_app-images/configurateur/accessoires/multimedia/support-smartphone.jpg"
+                   }
+                  ]
+             },
+             "interior":[{
+                   "name":"Tapis de coffre",
+                   "price":83,
+                   "picture":"/AlpineCars_app-images/configurateur/accessoires/interieur/tapis-coffre.jpg"
+                },
+                {
+                   "name":"Filet de rangement - Horizontal",
+                   "price":59,
+                   "picture":"/AlpineCars_app-images/configurateur/accessoires/interieur/filet-rangement.jpg"
+                }
+               ],
+             "exterior":[{
+                   "name":"Cabochons Alpine - Métalisés",
+                   "price":24,
+                   "picture":"/AlpineCars_app-images/configurateur/accessoires/exterieur/cabochons-metal.jpg"
+                },
+                {
+                   "name":"Housse de protection Alpine",
+                   "price":216,
+                   "picture":"/AlpineCars_app-images/configurateur/accessoires/exterieur/housse.jpg"
+                },
+                {
+                   "name":"Antivols pour jante - Noirs",
+                   "price":51,
+                   "picture":"/AlpineCars_app-images/configurateur/accessoires/exterieur/antivol-jantes.jpg"
+                }
+               ]
+             }
+          }
+       }
+    }

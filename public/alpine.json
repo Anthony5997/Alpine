@@ -4,6 +4,7 @@
           "price":54700,
             "characteristic":[
                {
+               "name" :"Peinture opaque Blanc Glacier",
                "color":"white",
                "price":0,
                 "rims":[{
@@ -29,6 +30,7 @@
                   ]
                 },
              {
+               "name" :"Teinte métallisée Noir Profond",
                "color":"black",
                "price":840,
                 "rims":[{
@@ -54,6 +56,7 @@
                   ]
              },
              {
+             "name" :"Teinte spéciale Bleu Alpine",
              "color":"blue",
                 "price":1800,
                 "rims":[{
@@ -108,45 +111,48 @@
           "price":58500,
           "characteristic":[
              {
+               "name" :"Peinture opaque Blanc Glacier",
                "color":"white",
                 "price":0,
                 "rims":[{
                    "model": "standard",
                       "price":0,
                       "pictures":[
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-1.jpg",
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-2.jpg",
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-3.jpg",
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-4.jpg"
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-1.jpg",
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-2.jpg",
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-3.jpg",
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_blanc-jante_legende-4.jpg"
                       ]
                    }
                   ]
                 },
                 {
+                  "name" :"Teinte métallisée Noir Profond",
                 "color":"black",
                 "price":840,
                 "rims":[{
                    "model": "standard",
                       "price":0,
                       "pictures":[
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-1.jpg",
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-2.jpg",
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-3.jpg",
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-4.jpg"
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-1.jpg",
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-2.jpg",
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-3.jpg",
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_noir-jante_legende-4.jpg"
                       ]
                    }]
                 },
              {
+               "name" :"Teinte spéciale Bleu Alpine",
              "color":"blue",
                 "price":1800,
                 "rims":[{
                   "model": "standard",
                       "price":0,
                       "pictures":[
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-1.jpg",
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-2.jpg",
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-3.jpg",
-                         "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-4.jpg"
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-1.jpg",
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-2.jpg",
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-3.jpg",
+                         "/AlpineCars_app-images/configurateur/modele/legende/modele_legende-couleur_bleu-jante_legende-4.jpg"
                       ]
                    }]
                 }],
@@ -156,21 +162,21 @@
                 {
                    "name":"Sièges Confort en cuir noir",
                    "price":0,
-                   "picture":"/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/selection/cuir-noir.jpg",
+                   "picture":"/AlpineCars_app-images/configurateur/interieurs/selection/cuir-noir.jpg",
                    "views":[
-                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir-1.jpg",
-                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir-2.jpg",
-                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir-3.jpg"
+                      "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir-1.jpg",
+                      "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir-2.jpg",
+                      "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-noir-3.jpg"
                    ]
                 },
                 {
                    "name":"Sièges Confort en cuir brun",
                    "price":800,
-                   "picture":"/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/selection/cuir-brun.jpg",
+                   "picture":"/AlpineCars_app-images/configurateur/interieurs/selection/cuir-brun.jpg",
                    "views":[
-                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-brun-1.jpg",
-                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-brun-2.jpg",
-                      "/home/simplon/Documents/car-configurator-react/public/AlpineCars_app-images/configurateur/interieurs/vues/cuir-brun-3.jpg"
+                      "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-brun-1.jpg",
+                      "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-brun-2.jpg",
+                      "/AlpineCars_app-images/configurateur/interieurs/vues/cuir-brun-3.jpg"
                    ]
                 }]
           }

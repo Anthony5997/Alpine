@@ -2,14 +2,13 @@ import React, {useEffect} from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-materialize';
-import Rims from "./Rims";
 
 const Configurator = ({state}) => {
  
 return(
     <div>
-  {state.version}
-    <Row className='configurator'>
+      {state.version}
+      <Row className='configurator'>
           <Col s={12} m={6}>
             <img src={state.photoPure}></img>
           </Col>
@@ -22,17 +21,7 @@ return(
               <div><Link to= "/Accessoires"> Accessoires</Link></div>
               <div><Link to= "/Récapitulatif"> Récapitulatif</Link></div>
           </Col>
-          
-        </Row>
-{/* { state.version !== null && 
-      
-   
-    { state.version === "Pure" && 
-     
-       
-  }
-       
-} */}
+      </Row>
     </div>
 )}
 const mapStateToProps = state =>{

@@ -150,14 +150,3 @@ const mapDispatchToProps = dispatch => {
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Configurator)
-{/* <Col s={12} m={6} >
-    <div className="config-menu">
-
-    <div className=""><Link to= "/Couleur"> Couleur</Link></div>
-    <div><Link to= "/Jantes"> Jantes</Link></div>
-    <div><Link to= "/Sellerie"> Sellerie</Link></div>
-    <div><Link to= "/Equipements"> Equipements</Link></div>
-    <div><Link to= "/Accessories"> Accessoires</Link></div>
-    <div><Link to= "/Récapitulatif"> Récapitulatif</Link></div>
-    </div>
-</Col> */}

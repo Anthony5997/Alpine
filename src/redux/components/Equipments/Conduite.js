@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Card, CardTitle, Collection, CollectionItem } from 'react-materialize'; 
 import { getExhaust, getParkAssist, deleteExhaust, deleteParkAssist} from "../../actions";
+import Menu from "../Menu";
 
 const Conduite = ({state, driving, getExhaust, getParkAssist, deleteExhaust, deleteParkAssist}) => {
 
@@ -57,23 +58,9 @@ return(
                 m={6}
                 s={12}
             >
-                <Collection>
-                <CollectionItem href="#">
-                    Alvin
-                </CollectionItem>
-                <CollectionItem
-                    active
-                    href="#"
-                >
-                    Alvin
-                </CollectionItem>
-                <CollectionItem href="#">
-                    Alvin
-                </CollectionItem>
-                <CollectionItem href="#">
-                    Alvin
-                </CollectionItem>
-                </Collection>
+                <div className="menu">
+                    <Menu />
+                </div>
             </Col>
             </Row>
         </Col>

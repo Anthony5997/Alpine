@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Card, CardTitle, Collection, CollectionItem } from 'react-materialize';
 import { getExteriorAccessories , deleteExteriorAccessories } from "../../actions"; 
+import Menu from "../Menu";
  
 
 const Exterieur = ({state, exteriorAccessories, getExteriorAccessories, deleteExteriorAccessories}) => {
@@ -62,27 +63,8 @@ const Exterieur = ({state, exteriorAccessories, getExteriorAccessories, deleteEx
                 </Col>
                 <Col m={4} s={12}>
                     <Row>
-                        <Col
-                            m={6}
-                            s={12}
-                        >
-                            <Collection>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem
-                                active
-                                href="#"
-                            >
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            </Collection>
+                        <Col m={6} s={12}>
+                           TEST
                         </Col>
                     </Row>
                 </Col>
@@ -94,6 +76,9 @@ const Exterieur = ({state, exteriorAccessories, getExteriorAccessories, deleteEx
                     displayExteriorAccessories()
                 }
             </Row>
+            <div className="menu">
+                <Menu />
+            </div>
         </div>
     )}
 

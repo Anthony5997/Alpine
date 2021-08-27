@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Card, CardTitle, Collection, CollectionItem } from 'react-materialize';
-import { getTransport , deleteTransport } from "../../actions"; 
+import { getTransport , deleteTransport } from "../../actions";
+import Menu from "../Menu";
  
 
 const Transport = ({state, transport, getTransport, deleteTransport}) => {
@@ -60,27 +61,8 @@ const Transport = ({state, transport, getTransport, deleteTransport}) => {
                 </Col>
                 <Col m={4} s={12}>
                     <Row>
-                        <Col
-                            m={6}
-                            s={12}
-                        >
-                            <Collection>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem
-                                active
-                                href="#"
-                            >
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            </Collection>
+                        <Col m={6} s={12}>
+                           TEST
                         </Col>
                     </Row>
                 </Col>
@@ -92,6 +74,9 @@ const Transport = ({state, transport, getTransport, deleteTransport}) => {
                     displayTransport()
                 }
             </Row>
+            <div className="menu">
+                <Menu />
+            </div>
         </div>
     )}
 

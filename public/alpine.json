@@ -311,8 +311,8 @@
                }
              ]
              },
-             "innCustom":{
-                "equipements":[{
+             "innCustom":[
+                   {
                    "name":"Pédalier en aluminium",
                    "price":120,
                    "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/pedal-alu.jpg"
@@ -333,7 +333,6 @@
                    "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/siege-chauffant.jpg"
                 }
                ]
-             }
           },
           "accessories":{
              "transportAndProtection":[{
@@ -406,7 +405,18 @@
                    "price":51,
                    "picture":"/AlpineCars_app-images/configurateur/accessoires/exterieur/antivol-jantes.jpg"
                 }
-               ]
+               ],
+               "garage":[{
+                  "name":"Chargeur batterie",
+                  "price":240,
+                  "picture":"/AlpineCars_app-images/configurateur/accessoires/garage/chargeur-batterie.jpg"
+               },
+               {
+                  "name":"Kit Outils Alpine",
+                  "price":398,
+                  "picture":"/AlpineCars_app-images/configurateur/accessoires/garage/kit-outils.jpg"
+               }
+              ]
              }
           }
        }

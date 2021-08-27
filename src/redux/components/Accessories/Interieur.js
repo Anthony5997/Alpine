@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Card, CardTitle, Collection, CollectionItem } from 'react-materialize';
 import { getInnerAccessories , deleteInnerAccessories } from "../../actions"; 
+import Menu from "../Menu";
  
 
 const Interieur = ({state, innerAccessories, getInnerAccessories, deleteInnerAccessories}) => {
@@ -59,27 +60,8 @@ const Interieur = ({state, innerAccessories, getInnerAccessories, deleteInnerAcc
                 </Col>
                 <Col m={4} s={12}>
                     <Row>
-                        <Col
-                            m={6}
-                            s={12}
-                        >
-                            <Collection>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem
-                                active
-                                href="#"
-                            >
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            </Collection>
+                        <Col m={6} s={12}>
+                           TEST
                         </Col>
                     </Row>
                 </Col>
@@ -91,6 +73,9 @@ const Interieur = ({state, innerAccessories, getInnerAccessories, deleteInnerAcc
                     displayInnerAccessories()
                 }
             </Row>
+            <div className="menu">
+                <Menu />
+            </div>
         </div>
     )}
 

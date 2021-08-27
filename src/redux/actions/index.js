@@ -74,6 +74,8 @@ export const parseSealSelected = (data) => {
     }
 }
 
+/* EQUIPEMENT */
+
 export const getExhaust = (data) => {
     console.log("exhauts")
     return{
@@ -102,6 +104,24 @@ export const deleteParkAssist = () => {
     }
     
 }
+
+export const getEquipmentInterieur = (data) => {
+    return{
+       type : 'GET_EQUIPMENT_INT',
+       data
+    }
+    
+}
+export const deleteEquipmentInterieur  = (data) => {
+    return{
+       type : 'DELETE_EQUIPMENT_EXT',
+       data
+    }
+    
+}
+
+/* ACCESSORIES */ 
+
 
 export const getMultimediaSupport = (data) => {
     return{

@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Card, CardTitle, Collection, CollectionItem } from 'react-materialize';
-import { getGarage , deleteGarage } from "../../actions"; 
+import { getGarage , deleteGarage } from "../../actions";
+import Menu from "../Menu"; 
  
 
 const Garage = ({state, garage, getGarage, deleteGarage}) => {
@@ -58,27 +59,8 @@ const Garage = ({state, garage, getGarage, deleteGarage}) => {
                 </Col>
                 <Col m={4} s={12}>
                     <Row>
-                        <Col
-                            m={6}
-                            s={12}
-                        >
-                            <Collection>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem
-                                active
-                                href="#"
-                            >
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            <CollectionItem href="#">
-                                Alvin
-                            </CollectionItem>
-                            </Collection>
+                        <Col m={6} s={12}>
+                           TEST
                         </Col>
                     </Row>
                 </Col>
@@ -90,6 +72,9 @@ const Garage = ({state, garage, getGarage, deleteGarage}) => {
                     displayGarage()
                 }
             </Row>
+            <div className="menu">
+                <Menu />
+            </div>
         </div>
     )}
 

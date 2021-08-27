@@ -52,7 +52,7 @@ return(
             duration: 300, onShow: null, responsiveThreshold: Infinity, swipeable: false
             }}
             title="Garage">
-            {/* <Garage /> */}
+            <Garage />
         </Tab>
     </Tabs>
     </div>

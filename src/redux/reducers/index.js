@@ -13,17 +13,25 @@ export const initialState = {
     price : null,
     mainPic : null,
     view : [],
-    rims : {},
+    rims : null,
     sealing : null,
     parkassist:null,
     exhaust: null,
+    globalPrice : null,
+
+    equipment:{
+      innCustom : [],
+      car:'test'
   },
+
   support : [],
   transport : [],
   innerAccessories : [],
   exteriorAccessories : [],
   garage : [],
-  };
+
+  }
+}
    
   export const dataStore = (state = initialState, action) => {
     console.log("action" , action);
@@ -32,7 +40,8 @@ export const initialState = {
           case "GET_VERSION":{
               return{
                 ...state, 
-                version : action.data
+                version : action.data,
+
 
               }
           }
@@ -42,7 +51,9 @@ export const initialState = {
               jsonVersion : action.version,
               jsonOption : action.option,
               sealingJson : action.version.sealing.characteristic,
+              //globalPrice : state.jsonVersion.price,
               isFetching: false,
+              
             }
           }
           case "FETCHING_DATA":{
@@ -63,7 +74,9 @@ export const initialState = {
               mainPic : action.data.rims[0].pictures[0],
               view : action.data.rims[0].pictures,
             },
-            rimsJson : action.data.rims
+            rimsJson : action.data.rims,
+           // globalPrice : state.jsonVersion.price + state.currentSelection.price
+            
           }
       }
       case "CHOOSEN_RIMS":{
@@ -73,7 +86,8 @@ export const initialState = {
             ...state.currentSelection,
             rims : action.data,
             view: action.data.pictures
-          }
+          },
+         // globalPrice : state.jsonVersion.price + state.currentSelection.price + state.currentSelection.rims.price
         }
         console.log(newState);
         return newState
@@ -87,6 +101,8 @@ export const initialState = {
           }
         }
     }
+
+    /* EQUIPEMENT */
     case "GET_PARKASSIST":{
       return{
         ...state,
@@ -127,6 +143,84 @@ export const initialState = {
       }
       }
   }
+
+    case "GET_CONFORT":{
+      return{
+        ...state,
+        confort: state.confort.concat(action.data)
+      
+      }
+    }
+
+    case "DELETE_CONFORT":{
+      return{
+        ...state,
+        confort: state.confort.filter(confort => confort.name != action.data.name)
+      }
+    }
+
+    case "GET_DESIGN":{
+      return{
+        ...state,
+        design: state.confort.concat(action.data)
+      
+      }
+    }
+    
+    case "DELETE_DESIGN":{
+      return{
+        ...state,
+        design: state.confort.filter(confort => confort.name != action.data.name)
+      }
+    }
+
+    case "GET_EQUIPMENT_INT":{
+      let newState = {
+        ...state,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            innCustom: state.currentSelection.equipment.innCustom.concat(action.data),
+          }}, 
+          jsonOption:{
+            ...state.jsonOption,
+            equipment:{
+              ...state.jsonOption.equipment,
+              innCustom: state.jsonOption.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name != action.data.name)
+            }
+        
+        }}
+      console.log("que pasa ? : ", newState);
+      return newState
+    }
+    
+    case "DELETE_EQUIPMENT_EXT":{
+      let newState = {
+        ...state,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.jsonOption.equipment,
+            innCustom: state.currentSelection.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name != action.data.name),
+          }}, 
+          jsonOption:{
+            ...state.jsonOption,
+            equipment:{
+              ...state.jsonOption.equipment,
+              innCustom: state.jsonOption.equipment.innCustom.concat(action.data),
+            }
+        }
+      }
+    console.log(newState);
+    return newState
+    }
+
+    /* FIN EQUIPEMENT */
+
+    /* ACCESSORIES */
+
+
   case "GET_MULTIMEDIA_SUPPORT":{
     return{
       ...state,
@@ -196,6 +290,9 @@ export const initialState = {
       garage: state.garage.filter(garageItem => garageItem.name != action.data.name)
     }
   }
+
+    /* FIN ACCESSORIES */
+
 
   
   default:

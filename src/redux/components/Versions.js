@@ -1,15 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Row, Col, Card, CardTitle, Icon } from 'react-materialize';
+import { Icon , Button} from 'react-materialize';
 import { getVersion, getResJson } from "../actions";
-import Configurator from "./Configurator";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
  
 const Versions = ({state, getVersion, getResJson}) => {
 console.log(state)
 
-    const onChange = (version) => {
+    const onColor = (version) => {
       getVersion(version)
       getResJson(version)
     
@@ -19,33 +18,32 @@ return(
     <div>
       { state.version === null &&
   
-        <Row className='choiseVersion'>
-          <Col s={12} m={6}> 
-          <Link to='/Configurateur' onClick={()=>onChange('Pure')}>
-            <Card
-            header={<CardTitle image={state.photoPure} reveal waves="light"/>}
-            title="Pure"
-            >
-            <p>
-                Configurer
-            </p>
-            </Card>
+        <div className='choiseVersion'>
+     
+          <Link to='/Configurateur' onClick={()=>onColor('Pure')}>
+              <Button
+              className='blue-grey lighten-5 black-text pulse'
+                
+               node="a"
+                waves="light"
+              >
+                Pure <Icon right> settings_applications </Icon>
+              </Button>
+          </Link>
+          <Link to='/Configurateur' onClick={()=>onColor('Legende')}>
+          
+              <Button
+              className='blue-grey darken-4 pulse'
+                
+                href="/Configurateur"
+                node="a"
+                waves="light"
+              >
+                Legende <Icon right> settings_applications </Icon>
+              </Button>
             </Link>
-          </Col>
-
-          <Col s={12} m={6}>
-          <Link to='/Configurateur' onClick={()=>onChange('Legende')}>
-            <Card
-            header={<CardTitle image={state.photoLegende} reveal waves="light"/>}
-            title="Legende"
-            >
-            <p>
-                Configurer
-            </p>
-            </Card>
-            </Link>
-          </Col>
-        </Row>
+         
+        </div>
       }
     
     </div>

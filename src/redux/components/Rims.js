@@ -15,16 +15,17 @@ const Rims = ({state, parseRimsSelected}) => {
             parseRimsSelected(currentSelect)
     }
 
+
     const displayRims = () => mappedRims.map((rims) => {
         return (
-            <div key={rims}>
+            <div key={rims} >
                 <div className="container">
-                    <Col className="" s={6} m={6} >
-                       <div className="custom-color-select">
+                    <Col className="custom-color-select" s={6} m={6} >
+                       <div className={state.currentSelection.rims ? rims.model === state.currentSelection.rims.model ? 'selected' : '' : ""} >
                        <img src={rims.pictures[0]} onClick={() => (getRims(rims))}/>
                        {rims.model}
                        <br/>
-                       {" Prix : " +rims.price}
+                       <i class="material-icons">attach_money</i>{rims.price}
                        </div>
                     </Col>
                 </div>
@@ -40,9 +41,12 @@ const Rims = ({state, parseRimsSelected}) => {
 
     return(
 
-       <div>
-           <h3 className="car-name">{state.currentSelection.name}</h3>
-            <div className="container">
+       <div className='rims'>
+           <h3 className="car-name">{state.currentSelection.name}</h3>     
+           <Row>
+            {displayRims()}
+            </Row>
+            <div className="rims-carousel">
             <Carousel 
                     className="carrousel-select"
                     carouselId="Carousel-2"
@@ -67,38 +71,32 @@ const Rims = ({state, parseRimsSelected}) => {
                     <h1 className="select-car-please"> Please, select a car.</h1>
                 </div>
             }
-            <Row>
-            {displayRims()}
-
-            </Row>
-            <Row>
-                <Col m={2}>
+            <div className="containerButton">
                     <Link to="/Couleur">
-                        <div className="next-step">
-                        <Button node="button" waves="light">
-                            Previous step
-                            <Icon right>
-                            arrow_back
+                       
+                        <Button node="button" waves="light" className='blue-grey darken-4'>
+                            <Icon left>
+                                arrow_back
                             </Icon>
+                            Etape précédente
+                            
                         </Button>
-                        </div>
+                        
                     </Link>
-                </Col>
-                <Col m={8}>
-                </Col>
-                <Col m={2}>
+
                     <Link to="/Sellerie">
-                        <div className="next-step">
-                        <Button node="button" waves="light">
-                            Next step
+                      
+                        <Button node="button" waves="light" className='blue-grey darken-4'>
+                            Etape suivante
                             <Icon right>
-                            arrow_forward
+                             arrow_forward
                             </Icon>
                         </Button>
-                        </div>
+                        
                     </Link>
-                </Col>
-            </Row>
+               
+                   
+            </div>
         </div>
     )}
 

@@ -63,11 +63,7 @@ const Sealing = ({state, parseSealSelected}) => {
                     />
                 </div>
             }
-            {state.currentSelection.color === null &&
-                <div className="container">
-                    <h1 className="select-car-please"> Please, select a car.</h1>
-                </div>
-            }
+         
             <Row>
                 {displaySeal()}
             </Row>

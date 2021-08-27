@@ -87,6 +87,7 @@ nav{
     
     .presentation{
         position: relative;
+        margin-top: 2%;
     }
     .presentation img{
         width: 100%;
@@ -100,9 +101,34 @@ nav{
         background-color: rgb(0, 0, 0, 0.8);
         color: white;
         padding: 10%;
-    text-align: left;
+        text-align: left;
     
     }
+
+    .linkMenu a{
+        color: aliceblue;
+    }
+
+    .linkMenu:hover{
+        transform: scale(1.03);
+        transition: 200ms;
+        background-color: rgba(0, 0, 0, 0.652);
+
+    }
+
+    .linkMenu-disable{
+        background-color: rgb(0, 0, 0, 0.8);
+        color: white;
+        padding: 10%;
+        text-align: left;
+   
+    }
+
+    .linkMenu-disable a{
+        pointer-events: none;
+        color: rgb(223, 40, 40);
+    }
+
     @media (max-width: 890px) {
         .menu{
             top:10%;
@@ -144,6 +170,10 @@ nav{
         font-weight: bold;
     }
 
+    .configurator{
+        z-index: 1;
+    }
+
     .configurator .presentation-version{
         position: relative;
         color: blanchedalmond;
@@ -155,6 +185,32 @@ nav{
         font-family: 'Hall Fetica Narrow Italic', sans-serif;
         font-size: 60px;
         }
+
+        .start-config-button{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin-top: -10%;
+            z-index: 4;
+        }
+
+        .start-config-button button{
+            
+            z-index: 4;
+           
+            background-color: blanchedalmond;
+            color: black;
+            font-family: 'Hall Fetica Narrow Italic', sans-serif;
+            font-size: 24px;
+
+        }
+
+        .start-config-button button:hover{
+           background-color: rgb(49, 49, 49);
+           color: blanchedalmond;
+           transition: 300ms;
+           transform : scale(1.05);
+        }
         .presentation-info{
 
         font-family: 'Hall Fetica Narrow Italic', sans-serif;
@@ -163,7 +219,7 @@ nav{
 
         }
         .margin-config{
-            margin-top: 30px;
+            margin-top: 10%;
         }
         .border-clean{
             border-top: grey 1px solid;

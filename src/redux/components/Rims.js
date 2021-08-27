@@ -15,10 +15,6 @@ const Rims = ({state, parseRimsSelected}) => {
             parseRimsSelected(currentSelect)
     }
 
-    console.log("RIMS : ", state);
-
-
-
     const displayRims = () => mappedRims.map((rims) => {
         return (
             <div key={rims}>

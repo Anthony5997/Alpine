@@ -42,6 +42,11 @@ return(
                     }}
                 />  
             }
+            <div className="start-config-button">
+                <Link to="/Couleur">
+                    <Button>Commencer la Configuration</Button>
+                </Link>
+            </div>
         </div>
         <div className="margin-config">
             <Container>
@@ -102,7 +107,6 @@ return(
             </Row>
             <hr/>
         </Container>
-
 
         <Container>
             <h3 className="presentation-info">Modele A110</h3>

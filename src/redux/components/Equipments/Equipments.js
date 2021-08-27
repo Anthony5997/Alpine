@@ -14,10 +14,7 @@ const Equipments = ({}) => {
 return(
     <div>
        <Tabs className="tab-demo z-depth-1"
-        options={{
-        swipeable: true
-        }}
-    scope="tabs-31">
+    scope="tabs-22">
 
         <Tab active  title="Conduite"
             options={{

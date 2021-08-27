@@ -13,6 +13,8 @@ const Color = ({state, parseColorSelected}) => {
             parseColorSelected(currentSelect)
     }
 
+    console.log("COLOR : ", state);
+
     const displayColor = () => mappedColor.map((color) => {
 
         return (

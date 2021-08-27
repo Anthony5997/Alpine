@@ -14,9 +14,15 @@ export const initialState = {
     mainPic : null,
     view : [],
     rims : {},
-    sealing : null
-
-  }
+    sealing : null,
+    parkassist:null,
+    exhaust: null,
+  },
+  support : [],
+  transport : [],
+  innerAccessories : [],
+  exteriorAccessories : [],
+  garage : [],
   };
    
   export const dataStore = (state = initialState, action) => {
@@ -35,8 +41,8 @@ export const initialState = {
               ...state,
               jsonVersion : action.version,
               jsonOption : action.option,
+              sealingJson : action.version.sealing.characteristic,
               isFetching: false,
-              sealingJson : action.version.sealing.characteristic
             }
           }
           case "FETCHING_DATA":{
@@ -81,9 +87,118 @@ export const initialState = {
           }
         }
     }
+    case "GET_PARKASSIST":{
+      return{
+        ...state,
+        currentSelection : {
+        ...state.currentSelection,
+        parkassist: action.data
+       
+      }
+    }
+  }
+    case "DELETE_PARKASSIST":{
+      return{
+        ...state,
+        currentSelection : {
+          ...state.currentSelection,
+          parkassist: null
+       
+      }
+      }
+    }
+    case "GET_EXHAUST":{
+      return{
+        ...state,
+        currentSelection : {
+          ...state.currentSelection,
+          exhaust: action.data,
+      }
+        
+       
+      }
+    }
+    case "DELETE_EXHAUST":{
+      return{
+        ...state,
+        currentSelection : {
+          ...state.currentSelection,
+          exhaust: null,
+      }
+      }
+  }
+  case "GET_MULTIMEDIA_SUPPORT":{
+    return{
+      ...state,
+      support: state.support.concat(action.data)
+  
+    }
+}
+  case "DELETE_MULTIMEDIA_SUPPORT":{
+    return{
+      ...state,
+      support: state.support.filter(support => support.name != action.data.name)
+    }
+  }
 
-          
-          default:
-            return state
+  case "GET_TRANSPORT":{
+    return{
+      ...state,
+      transport: state.transport.concat(action.data)
+    }
+  }
+  
+  case "DELETE_TRANSPORT":{
+    return{
+      ...state,
+      transport: state.transport.filter(transportItem => transportItem.name != action.data.name)
+    }
+  }
+
+  case "GET_INNER_ACCESSORIES":{
+    return{
+      ...state,
+      innerAccessories: state.innerAccessories.concat(action.data)
+    }
+  }
+  
+  case "DELETE_INNER_ACCESSORIES":{
+    return{
+      ...state,
+      innerAccessories: state.innerAccessories.filter(innerAccessoriesItem => innerAccessoriesItem.name != action.data.name)
+    }
+  }
+
+  case "GET_EXTERIOR_ACCESSORIES":{
+    return{
+      ...state,
+      exteriorAccessories: state.exteriorAccessories.concat(action.data)
+    }
+  }
+  
+  case "DELETE_EXTERIOR_ACCESSORIES":{
+    return{
+      ...state,
+      exteriorAccessories: state.exteriorAccessories.filter(exteriorAccessoriesItem => exteriorAccessoriesItem.name != action.data.name)
+    }
+  }
+
+  case "GET_GARAGE":{
+    return{
+      ...state,
+      garage: state.garage.concat(action.data)
+    }
+  }
+  
+  case "DELETE_GARAGE":{
+    return{
+      ...state,
+      garage: state.garage.filter(garageItem => garageItem.name != action.data.name)
+    }
+  }
+
+  
+  default:
+  return state
   }
 }

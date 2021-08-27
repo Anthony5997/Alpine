@@ -6,7 +6,7 @@ import { parseSealSelected } from "../actions";
 
 
 
-const Rims = ({state, parseSealSelected}) => {
+const Sealing = ({state, parseSealSelected}) => {
 
     console.log("state sealing : ", state);
     let mappedSeal = state.sealingJson
@@ -87,7 +87,7 @@ const Rims = ({state, parseSealSelected}) => {
                 <Col m={8}>
                 </Col>
                 <Col m={2}>
-                    <Link to="/Equipement">
+                    <Link to="/Equipements">
                         <div className="next-step">
                             <Button node="button" waves="light">
                                 Next step
@@ -114,4 +114,4 @@ const mapDispatchToProps = dispatch => {
 
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Rims)
+export default connect(mapStateToProps, mapDispatchToProps)(Sealing)

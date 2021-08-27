@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Row, Col } from 'react-materialize';
+import { Row, Col, Card, CardTitle, Icon } from 'react-materialize';
 import { getVersion, getResJson } from "../actions";
 import Configurator from "./Configurator";
 import { Link } from 'react-router-dom';
@@ -18,17 +18,33 @@ console.log(state)
 return(
     <div>
       { state.version === null &&
+  
         <Row className='choiseVersion'>
-          <Link to= "/Configurateur" onClick={()=>onChange('Pure')}>
-          <Col s={12} m={6}>
-            <img src={state.photoPure}></img>
+          <Col s={12} m={6}> 
+          <Link to='/Configurateur' onClick={()=>onChange('Pure')}>
+            <Card
+            header={<CardTitle image={state.photoPure} reveal waves="light"/>}
+            title="Pure"
+            >
+            <p>
+                Configurer
+            </p>
+            </Card>
+            </Link>
           </Col>
-          </Link>
-          <Link to= "/Configurateur" onClick={()=>onChange('Legende')}>
+
           <Col s={12} m={6}>
-            <img src={state.photoLegende}></img>
+          <Link to='/Configurateur' onClick={()=>onChange('Legende')}>
+            <Card
+            header={<CardTitle image={state.photoLegende} reveal waves="light"/>}
+            title="Legende"
+            >
+            <p>
+                Configurer
+            </p>
+            </Card>
+            </Link>
           </Col>
-          </Link>
         </Row>
       }
     

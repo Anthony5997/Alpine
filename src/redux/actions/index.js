@@ -81,43 +81,121 @@ export const getExhaust = (data) => {
     return{
        type : 'GET_EXHAUST',
        data
-    }
-    
+    }  
 }
 
 export const deleteExhaust = () => {
     return{
        type : 'DELETE_EXHAUST',
-    }
-    
+    }   
 }
+
 export const getParkAssist = (data) => {
     return{
        type : 'GET_PARKASSIST',
        data
-    }
-    
+    }    
 }
+
 export const deleteParkAssist = () => {
     return{
        type : 'DELETE_PARKASSIST',
-    }
-    
+    }  
 }
 
 export const getEquipmentInterieur = (data) => {
     return{
        type : 'GET_EQUIPMENT_INT',
        data
-    }
-    
+    }  
 }
+
 export const deleteEquipmentInterieur  = (data) => {
     return{
        type : 'DELETE_EQUIPMENT_EXT',
        data
-    }
-    
+    } 
+}
+
+export const getConfort = (data) => {
+    return{
+       type : 'GET_CONFORT',
+       data
+    }  
+}
+
+export const deleteConfort  = () => {
+    return{
+       type : 'DELETE_CONFORT',
+    }  
+}
+
+export const getDesign = (data) => {
+    console.log(data)
+    return{
+       type : 'GET_DESIGN',
+       data
+    }  
+}
+
+export const deleteDesign  = (data) => {
+    console.log(data)
+    return{
+       type : 'DELETE_DESIGN',
+       data
+    }  
+}
+
+export const getStirrups = (data) => {
+    return{
+       type : 'GET_STIRRUPS',
+       data
+    }  
+}
+
+export const deleteStirrups  = () => {
+    return{
+       type : 'DELETE_STIRRUPS',
+    } 
+}
+
+export const getLogo = (data) => {
+    return{
+       type : 'GET_LOGO',
+       data
+    }  
+}
+
+export const deleteLogo  = () => {
+    return{
+       type : 'DELETE_LOGO',
+    }  
+}
+
+export const getTelemetrics = (data) => {
+    return{
+       type : 'GET_TELEMETRICS',
+       data
+    } 
+}
+
+export const deleteTelemetrics = () => {
+    return{
+       type : 'DELETE_TELEMETRICS',
+    }  
+}
+
+export const getAudioSystem = (data) => {
+    return{
+       type : 'GET_AUDIO',
+       data
+    }  
+}
+
+export const deleteAudioSystem  = () => {
+    return{
+       type : 'DELETE_AUDIO',
+    }  
 }
 
 /* ACCESSORIES */ 

@@ -18,12 +18,18 @@ export const initialState = {
     parkassist:null,
     exhaust: null,
 
-    equipment:{
-      innCustom : [],
-      parkAssist:null,
-      exhaust: null, 
-    },
-
+  equipment:{
+    innCustom : [],
+    parkAssist:null,
+    exhaust: null, 
+    confort:null,
+    design: [],
+    logo: null, 
+    stirrups: null,
+    telemetrics: null,
+    audioSystem: null
+  },
+  
   accessories:{
     innerAccessories : [],
     support : [],
@@ -124,26 +130,23 @@ export const initialState = {
         currentSelection:{
           ...state.currentSelection,
           equipment:{
-          ...state.currentSelection.equipment,
-          parkAssist: action.data
-        }
-      }
+            ...state.currentSelection.equipment,
+        parkAssist: action.data
+      }}
     }
-    return newState
-  }
+    return newState}
     case "DELETE_PARKASSIST":{
       let newState = {
         ...state,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
-          ...state.currentSelection.equipment,
-          parkAssist:null
-        }
-      }
+            ...state.currentSelection.equipment,
+            parkAssist:null
+      }}
     }
-    return newState
-  }
+
+    return newState}
     case "GET_EXHAUST":{
       let newState ={
         ...state,
@@ -152,83 +155,120 @@ export const initialState = {
           equipment:{
             ...state.currentSelection.equipment, 
             exhaust: action.data
-        }
-      }
-    }
-    return newState
-  }
+      }}}
+    return newState}
     case "DELETE_EXHAUST":{
       let newState ={
-        ...state,
-      currentSelection:{
-          ...state.currentSelection,
-        equipment:{
-          ...state.currentSelection.equipment,
-          exhaust: null
-        }
-      }
-    }
-    return newState
-  }
-
-    case "GET_CONFORT":{
-      return{
-        ...state,
-        confort: state.confort.concat(action.data)
-      }
-    }
-
-    case "DELETE_CONFORT":{
-      return{
-        ...state,
-        confort: state.confort.filter(confort => confort.name !== action.data.name)
-      }
-    }
-
-    case "GET_DESIGN":{
-      return{
-        ...state,
-        design: state.confort.concat(action.data)
-      
-      }
-    }
-    
-    case "DELETE_DESIGN":{
-      return{
-        ...state,
-        design: state.confort.filter(confort => confort.name !== action.data.name)
-      }
-    }
-
-    case "GET_EQUIPMENT_INT":{
-      let newState = {
         ...state,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
             ...state.currentSelection.equipment,
-            innCustom: state.currentSelection.equipment.innCustom.concat(action.data),
+            exhaust: null
+      }}}
+    return newState}
+    case "GET_CONFORT":{
+      return{
+        ...state,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            confort: action.data
+       
+      }}}
+    }
+    case "DELETE_CONFORT":{
+      return{
+        ...state,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            confort: null
+          }
+        }
+      }
+    }
+
+    case "GET_DESIGN":{
+      let newState = {
+        ...state,
+        equipementsPrice : state.equipementsPrice + action.data.price,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            design: state.currentSelection.equipment.design.concat(action.data),
           }
         }, 
         jsonOption:{
           ...state.jsonOption,
           equipment:{
             ...state.jsonOption.equipment,
-            innCustom: state.jsonOption.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name !== action.data.name)
+            design: state.jsonOption.equipment.design.filter(dataDesign => dataDesign.name != action.data.name)
           }
-        }
+       }
       }
-      return newState
-    }
-    
-    case "DELETE_EQUIPMENT_EXT":{
+       console.log('design new', newState)
+     return newState
+   }
+
+    case "DELETE_DESIGN":{
       let newState = {
         ...state,
+        equipementsPrice : state.equipementsPrice - action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
             ...state.currentSelection.equipment,
-            innCustom: state.currentSelection.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name !== action.data.name),
+            design: state.currentSelection.equipment.design.filter(dataDesign => dataDesign.name != action.data.name),
+          }
+        }, 
+        jsonOption:{
+          ...state.jsonOption,
+          equipment:{
+            ...state.jsonOption.equipment,
+            design: state.jsonOption.equipment.design.concat(action.data),
+          }
+        }
+       }
+       console.log('delete design', newState)
+     return newState
+    }
+
+    case "GET_EQUIPMENT_INT":{
+      let newState = {
+         ...state,
+        equipementsPrice : state.equipementsPrice + action.data.price,
+         currentSelection:{
+           ...state.currentSelection,
+           equipment:{
+             ...state.currentSelection.equipment,
+             innCustom: state.currentSelection.equipment.innCustom.concat(action.data),
+           }
+          }, 
+          jsonOption:{
+          ...state.jsonOption,
+          equipment:{
+            ...state.jsonOption.equipment,
+            innCustom: state.jsonOption.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name != action.data.name)
+          }
+         
+        }
+      }
+      return newState
+    }
+
+    case "DELETE_EQUIPMENT_INT":{
+      let newState = {
+        ...state,
+        equipementsPrice : state.equipementsPrice - action.data.price,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            innCustom: state.currentSelection.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name != action.data.name),
           }
         }, 
         jsonOption:{
@@ -238,8 +278,88 @@ export const initialState = {
             innCustom: state.jsonOption.equipment.innCustom.concat(action.data),
           }
         }
-      }
-      return newState
+       }
+     return newState
+    }
+
+    case "GET_LOGO":{
+      console.log("action logo : ", action.data);
+      return{
+        ...state,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            logo: action.data
+       
+      }}}
+    }case "DELETE_LOGO":{
+      return{
+        ...state,
+        //equipementsPrice : state.equipementsPrice - state.currentSelection.equipment.logo.price,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            logo: null
+      }}}
+    }case "GET_STIRRUPS":{
+      return{
+        ...state,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            stirrups: action.data
+       
+      }}}
+    }case "DELETE_STIRRUPS":{
+      return{
+        ...state,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            stirrups: null
+      }}}
+    }case "GET_TELEMETRICS":{
+      return{
+        ...state,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            telemetrics: action.data
+       
+      }}}
+    }case "DELETE_TELEMETRICS":{
+      return{
+        ...state,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            telemetrics: null
+      }}}
+    }case "GET_AUDIO":{
+      return{
+        ...state,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            audioSystem: action.data
+       
+      }}}
+    }case "DELETE_AUDIO":{
+      return{
+        ...state,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            audioSystem: null
+      }}}
     }
 
     /* FIN EQUIPEMENT */

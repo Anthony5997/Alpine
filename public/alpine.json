@@ -33,7 +33,8 @@
                "name" :"Teinte métallisée Noir Profond",
                "color":"black",
                "price":840,
-                "rims":[{
+                "rims":[
+                   {
                    "model":"standard",
                       "price":0,
                       "pictures":[
@@ -287,7 +288,8 @@
                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/securite/airbag.jpg"
                }
             },
-            "extCustom":[{
+            "extCustom":{
+            "stirrups":[{
                         "name":"Etriers de frein couleur Bleu Alpine",
                         "price":384,
                         "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/etrier-bleu.jpg"
@@ -296,14 +298,14 @@
                         "name":"Etriers de frein couleur Gris Anthracite",
                         "price":0,
                         "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/etrier-gris.jpg"
-                     },
-                    {
+                     }],
+              "logo":{
                        "name":"Logo Alpine sur les ailes avant",
                        "price":120,
                        "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/logo-alpine.jpg"
                     }
               
-            ],
+                 },
             "innCustom":[ 
                {
                   "name":"Harmonie carbone mat",

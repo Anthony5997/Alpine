@@ -6,7 +6,7 @@ const Menu = ({state}) => {
 
     console.log("State menu : ", state);
 
-    let prixTotal = state.accessoriesPrice + state.globalPrice;
+    let prixTotal = state.accessoriesPrice + state.globalPrice + state.equipementsPrice;
 
     function selectColor(){
 

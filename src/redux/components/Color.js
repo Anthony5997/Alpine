@@ -21,9 +21,9 @@ console.log(state)
                 <div className="container">
                     <Col className="custom-color-select" s={6} m={4} >
                        <div className={state.currentSelection.color ? color.color === state.currentSelection.color ? 'selected' : '' : ""} >
-                        <img src={color.rims[0].pictures[0]} onClick={() => (getColor(color))} />
+                        <img src={color.rims[0].pictures[0]} onClick={() => (getColor(color))} alt="car color"/>
                         <p >{color.name}</p>
-                        <p><i class="material-icons">attach_money</i>{color.price}</p>
+                        <p><i className="material-icons">attach_money</i>{color.price}</p>
                        </div>   
                     </Col>
                 </div>
@@ -36,16 +36,16 @@ console.log(state)
             `${pictures}`
         )
     })
-    const mappedPicsJson = () => state.jsonVersion.pictures.map((pictures) => {
-        return (
-            `${pictures}`
-        )
-    })
+    // const mappedPicsJson = () => state.jsonVersion.pictures.map((pictures) => {
+    //     return (
+    //         `${pictures}`
+    //     )
+    // })
 
     return(
        <div className='color'>
-    <div className='menu'>
-        <Menu />
+        <div className='menu'>
+            <Menu />
         </div> 
         <h3 className="car-name">{state.currentSelection.name}</h3>
             {state.currentSelection.color === null &&
@@ -73,7 +73,7 @@ console.log(state)
            }   
             {state.currentSelection.color === null && 
                 <div className='color-carousel'>
-                    <img src={state.jsonVersion.characteristic[0].rims[0].pictures[0]}></img>
+                    <img src={state.jsonVersion.characteristic[0].rims[0].pictures[0]} alt="car rims"></img>
                  </div>
            }  
           

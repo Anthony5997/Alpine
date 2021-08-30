@@ -17,20 +17,29 @@ export const initialState = {
     sealing : null,
     parkassist:null,
     exhaust: null,
-    globalPrice : null,
 
     equipment:{
       innCustom : [],
-      car:'test'
+      parkAssist:null,
+      exhaust: null, 
+    },
+
+  accessories:{
+    innerAccessories : [],
+    support : [],
+    transport : [],
+    exteriorAccessories : [],
+    garageAccessories : [],
   },
 
-  support : [],
-  transport : [],
-  innerAccessories : [],
-  exteriorAccessories : [],
-  garage : [],
+},
+  globalPrice : null,
+  versionColorPrice : null,
+  rimsPrice : 0,
+  sealPrice : 0,
+  equipementsPrice : null,
+  accessoriesPrice : null,
 
-  }
 }
    
   export const dataStore = (state = initialState, action) => {
@@ -51,7 +60,7 @@ export const initialState = {
               jsonVersion : action.version,
               jsonOption : action.option,
               sealingJson : action.version.sealing.characteristic,
-              //globalPrice : state.jsonVersion.price,
+              globalPrice : action.version.price,
               isFetching: false,
               
             }
@@ -66,6 +75,7 @@ export const initialState = {
 
           return{
             ...state,
+
             currentSelection : {
               ...state.currentSelection,
               name : action.data.name,
@@ -75,7 +85,8 @@ export const initialState = {
               view : action.data.rims[0].pictures,
             },
             rimsJson : action.data.rims,
-           // globalPrice : state.jsonVersion.price + state.currentSelection.price
+            versionColorPrice : state.jsonVersion.price + action.data.price,
+            globalPrice : state.jsonVersion.price + state.rimsPrice + state.sealPrice + action.data.price
             
           }
       }
@@ -87,75 +98,90 @@ export const initialState = {
             rims : action.data,
             view: action.data.pictures
           },
-         // globalPrice : state.jsonVersion.price + state.currentSelection.price + state.currentSelection.rims.price
+          rimsPrice : action.data.price,
+          globalPrice : state.versionColorPrice + state.sealPrice + action.data.price
         }
-        console.log(newState);
         return newState
       }
       case "CHOOSEN_SEAL":{
+        console.log("SEAL SELECT : " ,action.data.price);
         return{
           ...state,
           currentSelection : {
             ...state.currentSelection,
             sealing : action.data
-          }
+          },
+          sealPrice : action.data.price,
+          globalPrice : state.versionColorPrice + state.rimsPrice + action.data.price
         }
     }
 
     /* EQUIPEMENT */
+
     case "GET_PARKASSIST":{
-      return{
+      let newState = {
         ...state,
-        currentSelection : {
-        ...state.currentSelection,
-        parkassist: action.data
-       
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+          ...state.currentSelection.equipment,
+          parkAssist: action.data
+        }
       }
     }
+    return newState
   }
     case "DELETE_PARKASSIST":{
-      return{
+      let newState = {
         ...state,
-        currentSelection : {
+        currentSelection:{
           ...state.currentSelection,
-          parkassist: null
-       
-      }
+          equipment:{
+          ...state.currentSelection.equipment,
+          parkAssist:null
+        }
       }
     }
+    return newState
+  }
     case "GET_EXHAUST":{
-      return{
+      let newState ={
         ...state,
-        currentSelection : {
+        currentSelection:{
           ...state.currentSelection,
-          exhaust: action.data,
-      }
-        
-       
+          equipment:{
+            ...state.currentSelection.equipment, 
+            exhaust: action.data
+        }
       }
     }
+    return newState
+  }
     case "DELETE_EXHAUST":{
-      return{
+      let newState ={
         ...state,
-        currentSelection : {
+      currentSelection:{
           ...state.currentSelection,
-          exhaust: null,
+        equipment:{
+          ...state.currentSelection.equipment,
+          exhaust: null
+        }
       }
-      }
+    }
+    return newState
   }
 
     case "GET_CONFORT":{
       return{
         ...state,
         confort: state.confort.concat(action.data)
-      
       }
     }
 
     case "DELETE_CONFORT":{
       return{
         ...state,
-        confort: state.confort.filter(confort => confort.name != action.data.name)
+        confort: state.confort.filter(confort => confort.name !== action.data.name)
       }
     }
 
@@ -170,7 +196,7 @@ export const initialState = {
     case "DELETE_DESIGN":{
       return{
         ...state,
-        design: state.confort.filter(confort => confort.name != action.data.name)
+        design: state.confort.filter(confort => confort.name !== action.data.name)
       }
     }
 
@@ -182,16 +208,16 @@ export const initialState = {
           equipment:{
             ...state.currentSelection.equipment,
             innCustom: state.currentSelection.equipment.innCustom.concat(action.data),
-          }}, 
-          jsonOption:{
-            ...state.jsonOption,
-            equipment:{
-              ...state.jsonOption.equipment,
-              innCustom: state.jsonOption.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name != action.data.name)
-            }
-        
-        }}
-      console.log("que pasa ? : ", newState);
+          }
+        }, 
+        jsonOption:{
+          ...state.jsonOption,
+          equipment:{
+            ...state.jsonOption.equipment,
+            innCustom: state.jsonOption.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name !== action.data.name)
+          }
+        }
+      }
       return newState
     }
     
@@ -201,100 +227,254 @@ export const initialState = {
         currentSelection:{
           ...state.currentSelection,
           equipment:{
+            ...state.currentSelection.equipment,
+            innCustom: state.currentSelection.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name !== action.data.name),
+          }
+        }, 
+        jsonOption:{
+          ...state.jsonOption,
+          equipment:{
             ...state.jsonOption.equipment,
-            innCustom: state.currentSelection.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name != action.data.name),
-          }}, 
-          jsonOption:{
-            ...state.jsonOption,
-            equipment:{
-              ...state.jsonOption.equipment,
-              innCustom: state.jsonOption.equipment.innCustom.concat(action.data),
-            }
+            innCustom: state.jsonOption.equipment.innCustom.concat(action.data),
+          }
         }
       }
-    console.log(newState);
-    return newState
+      return newState
     }
 
     /* FIN EQUIPEMENT */
 
     /* ACCESSORIES */
 
-
   case "GET_MULTIMEDIA_SUPPORT":{
-    return{
+    console.log("data d'entré : ",action.data.price);
+    let newState = {
       ...state,
-      support: state.support.concat(action.data)
-  
+      accessoriesPrice : state.accessoriesPrice + action.data.price,
+      currentSelection:{
+        ...state.currentSelection,
+        accessories:{
+          ...state.currentSelection.accessories,
+          support: state.currentSelection.accessories.support.concat(action.data),
+        }
+      }, 
+      jsonOption:{
+        ...state.jsonOption,
+        accessories:{
+          ...state.jsonOption.accessories,
+          multimedia:{
+          ...state.jsonOption.accessories.multimedia,
+            support: state.jsonOption.accessories.multimedia.support.filter(dataSupport => dataSupport.name !== action.data.name)
+          }
+        }
+      }
     }
-}
+      return newState
+  }
   case "DELETE_MULTIMEDIA_SUPPORT":{
-    return{
+    let newState = {
       ...state,
-      support: state.support.filter(support => support.name != action.data.name)
+      accessoriesPrice : state.accessoriesPrice - action.data.price,
+      currentSelection:{
+        ...state.currentSelection,
+        accessories:{
+          ...state.currentSelection.accessories,
+          support: state.currentSelection.accessories.support.filter(dataSupport => dataSupport.name !== action.data.name),
+        }
+      }, 
+      jsonOption:{
+        ...state.jsonOption,
+        accessories:{
+          ...state.jsonOption.accessories,
+          multimedia:{
+            ...state.jsonOption.accessories.multimedia,
+            support: state.jsonOption.accessories.multimedia.support.concat(action.data),
+          }
+        }
+      }
     }
+    return newState
   }
 
   case "GET_TRANSPORT":{
-    return{
+    let newState = {
       ...state,
-      transport: state.transport.concat(action.data)
+      accessoriesPrice : state.accessoriesPrice + action.data.price,
+      currentSelection:{
+        ...state.currentSelection,
+        accessories:{
+          ...state.currentSelection.accessories,
+          transport: state.currentSelection.accessories.transport.concat(action.data),
+        }
+      }, 
+      jsonOption:{
+        ...state.jsonOption,
+        accessories:{
+          ...state.jsonOption.accessories,
+            transportAndProtection: state.jsonOption.accessories.transportAndProtection.filter(dataTransport => dataTransport.name !== action.data.name) 
+        }
+      }
     }
+    return newState
   }
   
   case "DELETE_TRANSPORT":{
-    return{
+    let newState = {
       ...state,
-      transport: state.transport.filter(transportItem => transportItem.name != action.data.name)
+      accessoriesPrice : state.accessoriesPrice - action.data.price,
+      currentSelection:{
+        ...state.currentSelection,
+        accessories:{
+          ...state.currentSelection.accessories,
+          transport: state.currentSelection.accessories.transport.filter(dataTransport => dataTransport.name !== action.data.name),
+        }
+      }, 
+      jsonOption:{
+        ...state.jsonOption,
+        accessories:{
+          ...state.jsonOption.accessories,
+            transportAndProtection: state.jsonOption.accessories.transportAndProtection.concat(action.data),
+        }
+      }
     }
+    return newState
   }
 
   case "GET_INNER_ACCESSORIES":{
-    return{
+    let newState = {
       ...state,
-      innerAccessories: state.innerAccessories.concat(action.data)
+      accessoriesPrice : state.accessoriesPrice + action.data.price,
+      currentSelection:{
+        ...state.currentSelection,
+        accessories:{
+          ...state.currentSelection.accessories,
+          innerAccessories: state.currentSelection.accessories.innerAccessories.concat(action.data),
+        }
+      }, 
+      jsonOption:{
+        ...state.jsonOption,
+        accessories:{
+          ...state.jsonOption.accessories,
+          interior: state.jsonOption.accessories.interior.filter(dataInterior => dataInterior.name !== action.data.name)
+        }
+      }
     }
+    return newState
   }
   
   case "DELETE_INNER_ACCESSORIES":{
-    return{
+    let newState = {
       ...state,
-      innerAccessories: state.innerAccessories.filter(innerAccessoriesItem => innerAccessoriesItem.name != action.data.name)
+      accessoriesPrice : state.accessoriesPrice - action.data.price,
+      currentSelection:{
+        ...state.currentSelection,
+        accessories:{
+          ...state.currentSelection.accessories,
+          innerAccessories: state.currentSelection.accessories.innerAccessories.filter(dataInterior => dataInterior.name !== action.data.name),
+        }
+      }, 
+      jsonOption:{
+        ...state.jsonOption,
+        accessories:{
+          ...state.jsonOption.accessories,
+          interior: state.jsonOption.accessories.interior.concat(action.data),
+        }
+      }
     }
+    return newState
   }
 
   case "GET_EXTERIOR_ACCESSORIES":{
-    return{
+    let newState = {
       ...state,
-      exteriorAccessories: state.exteriorAccessories.concat(action.data)
+      accessoriesPrice : state.accessoriesPrice + action.data.price,
+      currentSelection:{
+        ...state.currentSelection,
+        accessories:{
+          ...state.currentSelection.accessories,
+          exteriorAccessories: state.currentSelection.accessories.exteriorAccessories.concat(action.data),
+        }
+      }, 
+      jsonOption:{
+        ...state.jsonOption,
+        accessories:{
+          ...state.jsonOption.accessories,
+            exterior: state.jsonOption.accessories.exterior.filter(dataExterior => dataExterior.name !== action.data.name) 
+        }
+      }
     }
+    return newState
   }
   
   case "DELETE_EXTERIOR_ACCESSORIES":{
-    return{
+    let newState = {
       ...state,
-      exteriorAccessories: state.exteriorAccessories.filter(exteriorAccessoriesItem => exteriorAccessoriesItem.name != action.data.name)
+      accessoriesPrice : state.accessoriesPrice - action.data.price,
+      currentSelection:{
+        ...state.currentSelection,
+        accessories:{
+          ...state.currentSelection.accessories,
+          exteriorAccessories: state.currentSelection.accessories.exteriorAccessories.filter(dataExterior => dataExterior.name !== action.data.name),
+        }
+      }, 
+      jsonOption:{
+        ...state.jsonOption,
+        accessories:{
+          ...state.jsonOption.accessories,
+          exterior: state.jsonOption.accessories.exterior.concat(action.data),
+        }
+      }
     }
+    return newState
   }
 
   case "GET_GARAGE":{
-    return{
+    let newState = {
       ...state,
-      garage: state.garage.concat(action.data)
+      accessoriesPrice : state.accessoriesPrice + action.data.price,
+      currentSelection:{
+        ...state.currentSelection,
+        accessories:{
+          ...state.currentSelection.accessories,
+          garageAccessories: state.currentSelection.accessories.garageAccessories.concat(action.data),
+        }
+      }, 
+      jsonOption:{
+        ...state.jsonOption,
+        accessories:{
+          ...state.jsonOption.accessories,
+            garage: state.jsonOption.accessories.garage.filter(dataGarage => dataGarage.name !== action.data.name) 
+        }
+      }
     }
+    console.log("add in current select / delete in option", newState);
+    return newState
   }
   
   case "DELETE_GARAGE":{
-    return{
+    let newState = {
       ...state,
-      garage: state.garage.filter(garageItem => garageItem.name != action.data.name)
+      accessoriesPrice : state.accessoriesPrice - action.data.price,
+      currentSelection:{
+        ...state.currentSelection,
+        accessories:{
+          ...state.currentSelection.accessories,
+          garageAccessories: state.currentSelection.accessories.garageAccessories.filter(dataGarage => dataGarage.name !== action.data.name),
+        }
+      }, 
+      jsonOption:{
+        ...state.jsonOption,
+        accessories:{
+          ...state.jsonOption.accessories,
+          garage: state.jsonOption.accessories.garage.concat(action.data),
+        }
+      }
     }
+    return newState
   }
 
     /* FIN ACCESSORIES */
 
-
-  
   default:
   return state
   }

@@ -15,35 +15,35 @@ import Configurator from './redux/components/Configurator';
 import { Navbar, Icon, NavItem } from 'react-materialize';
 
 const App = () => (
-  <Provider store={store} >
-   
-      <main> 
+
+  <Provider store={store} > 
+    <main> 
       <Navbar 
-  alignLinks="right"
-  brand={<a className="brand-logo center-align" id ='logo' href="/"><img src='/AlpineCars_app-images/sources-homepage/logo/logo-white.png'></img></a>}
-  id="mobile-nav"
-  menuIcon={<Icon>menu</Icon>}
-  options={{
-    draggable: true,
-    edge: 'left',
-    inDuration: 250,
-    onCloseEnd: null,
-    onCloseStart: null,
-    onOpenEnd: null,
-    onOpenStart: null,
-    outDuration: 200,
-    preventScrolling: true,
-    fixed: true,
-    centerLogo: true
-  }}
->
-  <NavItem href="/#versions">
-    Versions
-  </NavItem>
-  <NavItem href="components.html">
-    Components
-  </NavItem>
-</Navbar>
+          alignLinks="right"
+          brand={<a className="brand-logo center-align" id ='logo' href="/"><img src='/AlpineCars_app-images/sources-homepage/logo/logo-white.png' alt="logo"></img></a>}
+          id="mobile-nav"
+          menuIcon={<Icon>menu</Icon>}
+          options={{
+            draggable: true,
+            edge: 'left',
+            inDuration: 250,
+            onCloseEnd: null,
+            onCloseStart: null,
+            onOpenEnd: null,
+            onOpenStart: null,
+            outDuration: 200,
+            preventScrolling: true,
+            fixed: true,
+            centerLogo: true
+          }}
+        >
+        <NavItem href="/#versions">
+          Versions
+        </NavItem>
+        <NavItem href="components.html">
+          Components
+        </NavItem>
+      </Navbar>
         <Router> 
           <Route path='/' exact component={Home}/>
           <Route path='/Couleur' exact component={Color}/>

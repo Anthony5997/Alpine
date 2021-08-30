@@ -1,91 +1,128 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Carousel, Row, Col, Card, CardTitle, Collection, CollectionItem } from 'react-materialize';
+import { Carousel, Row, Col, Button, Icon } from 'react-materialize';
 import { getExteriorAccessories , deleteExteriorAccessories } from "../../actions"; 
 import Menu from "../Menu";
  
 
-const Exterieur = ({state, exteriorAccessories, getExteriorAccessories, deleteExteriorAccessories}) => {
+const Exterieur = ({state, exteriorAccessories, selectedAccessoriesExterior, getExteriorAccessories, deleteExteriorAccessories}) => {
 
 
-    console.log("State : ", state);
-    console.log("State : ", state);
-    
-    const onExteriorAccessories = (data) => {
-
-        if(state.exteriorAccessories.length === 0){
-            getExteriorAccessories(data)
-        }else{
-                for(var i = 0; i < state.exteriorAccessories.length; i++){
-                      if(state.exteriorAccessories[i].name === data.name){
-                        deleteExteriorAccessories(data);
-                        break;
-                    }else if(state.exteriorAccessories[i].name !== data.name){
-                        getExteriorAccessories(data);
-                        break;
-                    }
+   
+    const mapExteriorJson = () =>
+        exteriorAccessories.map((exteriorAccessories)=>{
+        return(
+            <Col key ={exteriorAccessories} m={3} s={12} className='itemDriving'>
+             <img src={exteriorAccessories.picture}></img>
+                {
+                exteriorAccessories.price === 0 &&
+                    <>
+                        <p className='center'><strong>Option intégrée</strong></p>
+                        <p className='equipmentName truncate'>{exteriorAccessories.name}</p>
+                    </>
                 }
-           
-        }
-}
-
-    
-    const displayExteriorAccessories = () => exteriorAccessories.map((option) => {
-        
-        return (
-            <Col m={3} s={12} >
-                <Card className='itemDriving'
-                key={option}
-                header={<CardTitle image={option.picture}
-                onClick={() => onExteriorAccessories(option)}/>}
-                > 
-                    <p className='equipementName'>{option.name}</p>
-                    <p>{option.price} <i class="material-icons">attach_money</i></p>
-                </Card> 
+                {
+                exteriorAccessories.price !== 0 &&
+                    <>
+                    <p className='equipmentName truncate'>{exteriorAccessories.name}</p>
+                    <p>{exteriorAccessories.price} <i className='fas fa-comment-dollar'></i> <Button onClick = {()=>getExteriorAccessories(exteriorAccessories)}
+                        className='right'
+                        floating
+                        icon={<Icon>add</Icon>}
+                        small
+                        node="button"
+                        waves="light"
+                    /></p>
+                    </>
+                }
             </Col>
         )
-        })
+    })
+
     
-    return(
-        <div className='driving'>
-            <Row>
-                <Col m={8} s={12}>
-                    <Carousel
-                    carouselId="Carousel-61"
+    const mapExteriorSelected = () =>
+    selectedAccessoriesExterior.map((exteriorCustomAccessories)=>{
+       return(
+           <Col key ={exteriorCustomAccessories} m={3} s={12} className='itemDriving'>
+               <img  src={exteriorCustomAccessories.picture}></img>
+              <Button onClick = {()=>deleteExteriorAccessories(exteriorCustomAccessories)}
+                   className="red right deleteInncustom"
+                   floating
+                   icon={<Icon>delete_forever</Icon>}
+                   small                        
+                   node="button"
+                   waves="light"
+                   />
+           </Col>
+       )
+    })
+
+   const mappedSelectionPictures = () => selectedAccessoriesExterior.map((exteriorAccessories)=>{
+       return (
+           `${exteriorAccessories.picture}`
+       )
+      })
+
+      const mappedPics = () => state.currentSelection.view.map((pictures) => {
+       return (
+         `${pictures}`
+      ) 
+   })
+    
+   return (
+        <div className='itemEquipment'>
+            <div className='menu'>
+                <Menu />
+            </div> 
+            {selectedAccessoriesExterior.length === 0 && 
+            <div className='inncustom-carousel'>
+                <Carousel
                     images={[
-                        exteriorAccessories[0].picture,
+                        mappedPics()
                     ]}
                     options={{
                         fullWidth: true,
                         indicators: true
                     }}
+                />
+            </div>
+            }
+            {selectedAccessoriesExterior.length !== 0 && 
+                <div className='inncustom-carousel'>
+                    <Carousel
+                        images={[
+                            mappedSelectionPictures()
+                        ]}
+                        options={{
+                            fullWidth: true,
+                            indicators: true
+                        }}
                     />
-                </Col>
-                <Col m={4} s={12}>
-                    <Row>
-                        <Col m={6} s={12}>
-                           TEST
-                        </Col>
-                    </Row>
-                </Col>
-            </Row>
-            <Row>
-                <Col m={3} s={12} >
-                </Col>
-                {
-                    displayExteriorAccessories()
+                </div>
+            }
+            <Row className='optSelected'>
+            
+                {selectedAccessoriesExterior.length !== 0 && 
+                <>
+                    <h3>Options choisis</h3>
+                    {mapExteriorSelected()}
+                </>
                 }
             </Row>
-            <div className="menu">
-                <Menu />
-            </div>
+            <Row>
+                {exteriorAccessories.length !== 0 && 
+                    mapExteriorJson()
+                }
+            </Row>
         </div>
-    )}
+    )
+}
 
 const mapStateToProps = state =>{
     return{
         state : state,
         exteriorAccessories : state.jsonOption.accessories.exterior,
+        selectedAccessoriesExterior: state.currentSelection.accessories.exteriorAccessories
     }
 }
 const mapDispatchToProps = dispatch => {

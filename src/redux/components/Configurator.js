@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { Row, Col, Button, Carousel, Container } from 'react-materialize';
@@ -52,10 +52,10 @@ return(
             <Container>
                 <Row>
                     <Col m={6}>
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/interieur/interieur_desktop.png" />
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/interieur/interieur_desktop.png" alt="homepage car" />
                     </Col>
                     <Col m={6}>
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/A110/Presentation_desktop-1.png" />
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/A110/Presentation_desktop-1.png" alt="homepage car" />
                     </Col>
                 </Row>
             </Container>
@@ -65,10 +65,10 @@ return(
             <h3 className="presentation-info">Perfomances</h3>
             <Row>
                 <Col m={6} >
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/caractВristiques/performance_desktop.png" />
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/caractВristiques/performance_desktop.png" alt="performance car"/>
                 </Col>
                 <Col m={6}>
-                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/caractВristiques/transmission_desktop.png" />
+                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/caractВristiques/transmission_desktop.png" alt="performance car"/>
                 </Col>
             </Row>
             <hr/>
@@ -78,31 +78,31 @@ return(
             <h3 className="presentation-info">Technique</h3>
             <Row >
                 <Col m={6}>
-                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/motorisation/turbo_desktop.png" />
+                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/motorisation/turbo_desktop.png" alt="technique car"/>
                 </Col>
 
                 {state.version === "Pure" &&
                 <Col m={6}>
-                <img className="picture-technique-perf" src="AlpineCars_app-images/sources-homepage/versions/COMPO-PURE.png" />
+                <img className="picture-technique-perf" src="AlpineCars_app-images/sources-homepage/versions/COMPO-PURE.png" alt="technique car" />
                 </Col>
                 }
                 {state.version === "Legende" &&
                 <Col m={6}>
-                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/versions/COMPO-LEGENDE.png" />
+                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/versions/COMPO-LEGENDE.png" alt="technique car" />
                 </Col>
                 }
             </Row>
             <hr className="border-clean"/>
             <Row>
                 <Col m={4} >
-                    <img className="picture-technique" src="/AlpineCars_app-images/sources-homepage/caractВristiques/dimensions-tech.png" />
+                    <img className="picture-technique" src="/AlpineCars_app-images/sources-homepage/caractВristiques/dimensions-tech.png" alt="technique car" />
                 </Col>
                 <Col m={5}>
-                    <img className="picture-technique" src="/AlpineCars_app-images/sources-homepage/conception/visuel_legerete_2_desktop.jpg" />
+                    <img className="picture-technique" src="/AlpineCars_app-images/sources-homepage/conception/visuel_legerete_2_desktop.jpg" alt="technique car" />
                 </Col>
                 <Col m={3} >
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/technologie/Technical-front-wheel-A110_mobile.jpg" />
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/technologie/Technical-rear-wheel-A110_mobile.jpg" />
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/technologie/Technical-front-wheel-A110_mobile.jpg" alt="wheel car" />
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/technologie/Technical-rear-wheel-A110_mobile.jpg" alt="wheel car" />
                 </Col>
             </Row>
             <hr/>
@@ -112,7 +112,7 @@ return(
             <h3 className="presentation-info">Modele A110</h3>
             <Row>
                 <Col m={7} >
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/A110/Alpine-A110-1.jpg" />
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/A110/Alpine-A110-1.jpg" alt="model A110"/>
                 </Col>
                 <Col m={5}>
                 <Carousel

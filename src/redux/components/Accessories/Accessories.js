@@ -1,7 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import {BrowserRouter as Router,Route,} from "react-router-dom";
-import { Link } from 'react-router-dom';
 import { Tabs, Tab } from 'react-materialize';
 import Exterieur from "./Exterieur";
 import Garage from "./Garage";

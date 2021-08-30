@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Row, Col, Carousel, Button, Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
 import { parseRimsSelected } from "../actions";
+import Menu from "./Menu";
 
 
 
@@ -22,10 +23,10 @@ const Rims = ({state, parseRimsSelected}) => {
                 <div className="container">
                     <Col className="custom-color-select" s={6} m={6} >
                        <div className={state.currentSelection.rims ? rims.model === state.currentSelection.rims.model ? 'selected' : '' : ""} >
-                       <img src={rims.pictures[0]} onClick={() => (getRims(rims))}/>
+                       <img src={rims.pictures[0]} onClick={() => (getRims(rims))} alt="car rims"/>
                        {rims.model}
                        <br/>
-                       <i class="material-icons">attach_money</i>{rims.price}
+                       <i className="material-icons">attach_money</i>{rims.price}
                        </div>
                     </Col>
                 </div>
@@ -42,6 +43,9 @@ const Rims = ({state, parseRimsSelected}) => {
     return(
 
        <div className='rims'>
+            <div className='menu'>
+                <Menu />
+            </div> 
            <h3 className="car-name">{state.currentSelection.name}</h3>     
            <Row>
             {displayRims()}

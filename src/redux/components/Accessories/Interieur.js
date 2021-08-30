@@ -1,88 +1,130 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Carousel, Row, Col, Card, CardTitle, Collection, CollectionItem } from 'react-materialize';
+import { Carousel, Row, Col, Button, Icon } from 'react-materialize';
 import { getInnerAccessories , deleteInnerAccessories } from "../../actions"; 
 import Menu from "../Menu";
  
 
-const Interieur = ({state, innerAccessories, getInnerAccessories, deleteInnerAccessories}) => {
+const Interieur = ({state, innerAccessories,selectedAccessoriesInterieur, getInnerAccessories, deleteInnerAccessories}) => {
 
+    console.log("state inner acces : ", state);
 
-    const onInnerAccessories = (data) => {
-
-        if(state.innerAccessories.length === 0){
-            getInnerAccessories(data)
-        }else{
-                for(var i = 0; i < state.innerAccessories.length; i++){
-                      if(state.innerAccessories[i].name === data.name){
-                        deleteInnerAccessories(data);
-                        break;
-                    }else if(state.innerAccessories[i].name !== data.name){
-                        getInnerAccessories(data);
-                        break;
-                    }
-                }
-           
-        }
-}
-
-    
-    const displayInnerAccessories = () => innerAccessories.map((option) => {
+    const mapInterieurJson = () =>
+    innerAccessories.map((innCustomAccessories)=>{
         
-        return (
-            <Col m={3} s={12} >
-                <Card className='itemDriving'
-                key={option}
-                header={<CardTitle image={option.picture}
-                onClick={() => onInnerAccessories(option)}/>}
-                > 
-                    <p className='equipementName'>{option.name}</p>
-                    <p>{option.price} <i class="material-icons">attach_money</i></p>
-                </Card> 
+        return(
+            <Col key ={innCustomAccessories} m={3} s={12} className='itemDriving'>
+             <img src={innCustomAccessories.picture}></img>
+             {
+              innCustomAccessories.price === 0 &&
+                 <>
+                <p className='center'><strong>Option intégrée</strong></p>
+                <p className='equipmentName truncate'>{innCustomAccessories.name}</p>
+                </>
+             }
+              {
+              innCustomAccessories.price !== 0 &&
+                <>
+                <p className='equipmentName truncate'>{innCustomAccessories.name}</p>
+                <p>{innCustomAccessories.price} <i class='fas fa-comment-dollar'></i> <Button onClick = {()=>getInnerAccessories(innCustomAccessories)}
+                    className='right'
+                    floating
+                    icon={<Icon>add</Icon>}
+                    small
+                    node="button"
+                    waves="light"
+                /></p>
+                </>
+             }
             </Col>
         )
-        })
+    })
+
     
-    return(
-        <div className='driving'>
-            <Row>
-                <Col m={8} s={12}>
-                    <Carousel
-                    carouselId="Carousel-61"
-                    images={[
-                        innerAccessories[0].picture,
-                    ]}
-                    options={{
-                        fullWidth: true,
-                        indicators: true
-                    }}
-                    />
+     
+    const mapInterieurSelected = () =>
+         selectedAccessoriesInterieur.map((innCustomAccessories)=>{
+            return(
+                <Col key ={innCustomAccessories} m={3} s={12} className='itemDriving'>
+                    <img  src={innCustomAccessories.picture}></img>
+                   <Button onClick = {()=>deleteInnerAccessories(innCustomAccessories)}
+                        className="red right deleteInncustom"
+                        floating
+                        icon={<Icon>delete_forever</Icon>}
+                        small                        
+                        node="button"
+                        waves="light"
+                        />
                 </Col>
-                <Col m={4} s={12}>
-                    <Row>
-                        <Col m={6} s={12}>
-                           TEST
-                        </Col>
-                    </Row>
-                </Col>
-            </Row>
-            <Row>
-                <Col m={3} s={12} >
-                </Col>
-                {
-                    displayInnerAccessories()
+            )
+         })
+    
+        const mappedSelectionPictures = () => selectedAccessoriesInterieur.map((innCustomAccessories)=>{
+            return (
+                `${innCustomAccessories.picture}`
+            )
+           })
+
+           const mappedPics = () => state.currentSelection.view.map((pictures) => {
+            return (
+              `${pictures}`
+           ) 
+        })
+
+    return (
+        <div className='itemEquipment'>
+            <div className='menu'>
+                <Menu />
+            </div> 
+            {selectedAccessoriesInterieur.length === 0 && 
+            <div className='inncustom-carousel'>
+                <Carousel
+                images={[
+                    mappedPics()
+                ]}
+                options={{
+                    fullWidth: true,
+                    indicators: true
+                }}
+                />
+            </div>
+            }
+            {selectedAccessoriesInterieur.length !== 0 && 
+                <div className='inncustom-carousel'>
+                <Carousel
+                images={[
+                 mappedSelectionPictures()
+                ]}
+                options={{
+                    fullWidth: true,
+                    indicators: true
+                }}
+                />
+                </div>
+            }
+            <Row className='optSelected'>
+            
+                {selectedAccessoriesInterieur.length !== 0 && 
+                < >
+                <h3>Options choisis</h3>
+                    {mapInterieurSelected()}
+                    </>
                 }
             </Row>
-            <div className="menu">
-                <Menu />
-            </div>
+            <Row>
+                {   innerAccessories.length !== 0 && 
+                    mapInterieurJson()
+                }
+            </Row>
         </div>
-    )}
+    )
+}
 
 const mapStateToProps = state =>{
     return{
         state : state,
         innerAccessories : state.jsonOption.accessories.interior,
+        selectedAccessoriesInterieur: state.currentSelection.accessories.innerAccessories
     }
 }
 const mapDispatchToProps = dispatch => {

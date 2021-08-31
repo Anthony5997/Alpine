@@ -1,86 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Tabs, Tab } from 'react-materialize';
-import Conduite from "./Conduite";
-import Confort from "./Confort";
-import Design from "./Design";
-import EquipmentExterieur from "./EquipmentExterieur";
-import EquipmentInterieur from "./EquipmentInterieur";
-import Media from "./Media";
-import Security from "./Security";
+import { Link } from 'react-router-dom';
+import { getEquipementPannel } from "../../actions";
 
-const Equipments = ({}) => {
+
+const Equipments = ({state, getEquipementPannel}) => {
+
 
 return(
-    <div>
-       <Tabs className="tab-demo z-depth-1"
-    scope="tabs-22">
-
-        <Tab active  title="Conduite"
-            options={{
-            duration: 300, onShow: null, responsiveThreshold: Infinity, swipeable: false
-            }} >
-            <Conduite />
-        </Tab> 
-
-        <Tab
-            options={{ 
-                duration: 300, onShow: null, responsiveThreshold: Infinity, swipeable: false
-            }}
-            title="Confort">
-            <Confort />
-        </Tab> 
   
-        <Tab 
-            options={{
-            duration: 300, onShow: null, responsiveThreshold: Infinity, swipeable: false
-            }}
-            title="Design">
-            <Design />
-        </Tab>
-
-        <Tab 
-            options={{
-            duration: 300, onShow: null, responsiveThreshold: Infinity, swipeable: false
-            }}
-            title="Extérieur">
-            <EquipmentExterieur />
-        </Tab>
-
-        <Tab 
-            options={{
-            duration: 300, onShow: null, responsiveThreshold: Infinity, swipeable: false
-            }}
-            title="Intérieur">
-            <EquipmentInterieur />
-        </Tab>
-
-        <Tab 
-            options={{
-            duration: 300, onShow: null, responsiveThreshold: Infinity, swipeable: false
-            }}
-            title="Media">
-            <Media />
-        </Tab>
-
-        <Tab 
-            options={{
-            duration: 300, onShow: null, responsiveThreshold: Infinity, swipeable: false
-            }}
-            title="Security">
-            <Security />
-        </Tab>
-    </Tabs>
+    <div className="router-equipement">
+        <div className="router-item" id={state.equipementPannel === "conduite" ? "pannelSelected" : ""}><Link onClick={()=> getEquipementPannel("conduite")} to= "/Conduite"><i class="fas fa-car"></i></Link></div>
+        <div className="router-item" id={state.equipementPannel === "confort" ? "pannelSelected" : ""}><Link onClick={()=> getEquipementPannel("confort")} to= "/Confort"><i class="fas fa-couch"></i></Link></div>
+        <div className="router-item" id={state.equipementPannel === "design" ? "pannelSelected" : ""}><Link onClick={()=> getEquipementPannel("design")} to= "/Design"><i class="fas fa-pencil-ruler"></i></Link></div>
+        <div className="router-item" id={state.equipementPannel === "equipementExterieur" ? "pannelSelected" : ""}><Link onClick={()=> getEquipementPannel("equipementExterieur")} to= "/EquipmentExterieur"><i className='fas fa-box-open'></i></Link></div>
+        <div className="router-item" id={state.equipementPannel === "equipementInterieur" ? "pannelSelected" : ""}><Link onClick={()=> getEquipementPannel("equipementInterieur")} to= "/EquipmentInterieur"><i class="fas fa-atlas"></i></Link></div>
+        <div className="router-item" id={state.equipementPannel === "media" ? "pannelSelected" : ""}><Link onClick={()=> getEquipementPannel("media")} to= "/Media"><i class="fas fa-photo-video"></i></Link></div>
+        <div className="router-item" id={state.equipementPannel === "security" ? "pannelSelected" : ""}><Link onClick={()=> getEquipementPannel("security")} to= "/Security"><i class="fas fa-shield-alt"></i></Link></div>
     </div>
 )}
 const mapStateToProps = state =>{
     return{
-        
+        state : state
     }
 }
 const mapDispatchToProps = dispatch => {
     return{
-        
+        getEquipementPannel: (data)=> dispatch(getEquipementPannel(data)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Equipments)

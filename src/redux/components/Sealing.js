@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { Row, Col, Carousel, Button, Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
-import { parseSealSelected } from "../actions";
+import { parseSealSelected, getMenu, getEquipementPannel } from "../actions";
 import Menu from "./Menu";
 
 
 
-const Sealing = ({state, parseSealSelected}) => {
+const Sealing = ({state, parseSealSelected, getMenu, getEquipementPannel}) => {
 
     console.log("state sealing : ", state);
     let mappedSeal = state.sealingJson
@@ -22,8 +22,8 @@ const Sealing = ({state, parseSealSelected}) => {
                 <div className="container">
                     <Col className="" s={6} m={6} >
                        <div className="custom-color-select">
-                        <img src={seal.picture} onClick={() => (getSeal(seal))} alt="car seal"/>
-                       {seal.name}  <i className="material-icons">attach_money</i>
+                        <img src={seal.picture} onClick={() => (getSeal(seal))}/>
+                       {seal.name}  <i class="material-icons">attach_money</i>
                         {seal.price}
                        </div>
                     </Col>
@@ -38,6 +38,12 @@ const Sealing = ({state, parseSealSelected}) => {
         )
     })
 
+    const getMenuAndPannel = () => {
+
+        getMenu('equipments');
+        getEquipementPannel();
+    }
+
     return(
 
        <div className='sealing'>
@@ -50,7 +56,7 @@ const Sealing = ({state, parseSealSelected}) => {
             </Row>
             {state.currentSelection.sealing === null && 
                 <div className='sealing-carousel'>
-                    <img src={mappedSeal[0].picture} alt="car seal"></img>
+                    <img src={mappedSeal[0].picture}></img>
                  </div>
            }  
             {state.currentSelection.sealing !== null && 
@@ -76,8 +82,13 @@ const Sealing = ({state, parseSealSelected}) => {
                     />
                 </div>
             }
+            {state.currentSelection.color === null &&
+                <div className="container">
+                    <h1 className="select-car-please"> Please, select a car.</h1>
+                </div>
+            }
                  <div className="containerButton">
-                    <Link to="/Jantes">
+                    <Link to="/Jantes" onClick={()=>getMenu('rims')}>
                        
                         <Button node="button" waves="light" className='blue-grey darken-4'>
                             <Icon left>
@@ -89,7 +100,7 @@ const Sealing = ({state, parseSealSelected}) => {
                         
                     </Link>
 
-                    <Link to="/Equipements">
+                    <Link to="/Conduite" onClick={()=>getMenuAndPannel()}>
                       
                         <Button node="button" waves="light" className='blue-grey darken-4'>
                             Etape suivante
@@ -112,6 +123,8 @@ const mapDispatchToProps = dispatch => {
     return{
 
         parseSealSelected: (data)=> dispatch(parseSealSelected(data)),
+        getMenu: (data)=> dispatch(getMenu(data)),
+        getEquipementPannel : ()=>dispatch(getEquipementPannel('conduite'))
 
     }
 }

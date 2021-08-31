@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { deleteConfort, getConfort} from "../../actions";
 import { Carousel, Row, Col, Icon, Button } from 'react-materialize'; 
 import Menu from "../Menu";
+import Equipments from "./Equipments";
+
 
 
 const Confort = ({state, getConfort, deleteConfort}) => { 
@@ -11,7 +13,7 @@ const Confort = ({state, getConfort, deleteConfort}) => {
         state.jsonOption.equipment.confort.map((confort, index)=>{
             
             return(
-                <Col key ={confort} m={3} s={12} className={state.currentSelection.equipment.confort ? state.jsonOption.equipment.confort[`${index}`].name === state.currentSelection.equipment.confort.name ? 'selected itemDriving' : 'itemDriving' : "itemDriving"} >
+                <Col key ={confort} m={3} s={12} className={confort.price === 0 ? 'selected itemDriving' : state.currentSelection.equipment.confort ? state.jsonOption.equipment.confort[`${index}`].name === state.currentSelection.equipment.confort.name ? 'selected itemDriving' : 'itemDriving' : "itemDriving"} >
                  <img src={confort.picture}></img>
                  {
                   confort.price === 0 &&
@@ -94,7 +96,7 @@ const Confort = ({state, getConfort, deleteConfort}) => {
             <Row>
                 {mapConfortJson()}
             </Row>
-         
+            <Equipments />
     
     
         

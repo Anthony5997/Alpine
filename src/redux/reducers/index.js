@@ -27,7 +27,8 @@ export const initialState = {
     logo: null, 
     stirrups: null,
     telemetrics: null,
-    audioSystem: null
+    audioSystem: null,  
+    brake: null,
   },
   
   accessories:{
@@ -45,7 +46,8 @@ export const initialState = {
   sealPrice : 0,
   equipementsPrice : 0,
   accessoriesPrice : 0,
-
+  menu: null,
+  equipementPannel: null,
 }
    
   export const dataStore = (state = initialState, action) => {
@@ -77,6 +79,19 @@ export const initialState = {
               isFetching:true,
             }
         }
+        case "GET_MENU":{
+          return{
+            ...state,
+          menu : action.data
+          }
+      }
+
+      case "GET_EQUIPEMENT_PANNEL":{
+        return{
+          ...state,
+        equipementPannel : action.data
+        }
+     }
         case "CHOOSEN_COLOR":{
 
           return{
@@ -110,7 +125,6 @@ export const initialState = {
         return newState
       }
       case "CHOOSEN_SEAL":{
-        console.log("SEAL SELECT : " ,action.data.price);
         return{
           ...state,
           currentSelection : {
@@ -137,6 +151,7 @@ export const initialState = {
     }
     return newState}
     case "DELETE_PARKASSIST":{
+      console.log("DELETE PARK ASSIST : ", action.data);
       let newState = {
         ...state,
         equipementsPrice : state.equipementsPrice - action.data.price,
@@ -214,7 +229,7 @@ export const initialState = {
           ...state.jsonOption,
           equipment:{
             ...state.jsonOption.equipment,
-            design: state.jsonOption.equipment.design.filter(dataDesign => dataDesign.name != action.data.name)
+            design: state.jsonOption.equipment.design.filter(dataDesign => dataDesign.name !== action.data.name)
           }
        }
       }
@@ -230,7 +245,7 @@ export const initialState = {
           ...state.currentSelection,
           equipment:{
             ...state.currentSelection.equipment,
-            design: state.currentSelection.equipment.design.filter(dataDesign => dataDesign.name != action.data.name),
+            design: state.currentSelection.equipment.design.filter(dataDesign => dataDesign.name !== action.data.name),
           }
         }, 
         jsonOption:{
@@ -260,7 +275,7 @@ export const initialState = {
           ...state.jsonOption,
           equipment:{
             ...state.jsonOption.equipment,
-            innCustom: state.jsonOption.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name != action.data.name)
+            innCustom: state.jsonOption.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name !== action.data.name)
           }
          
         }
@@ -276,7 +291,7 @@ export const initialState = {
           ...state.currentSelection,
           equipment:{
             ...state.currentSelection.equipment,
-            innCustom: state.currentSelection.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name != action.data.name),
+            innCustom: state.currentSelection.equipment.innCustom.filter(dataInnCustom => dataInnCustom.name !== action.data.name),
           }
         }, 
         jsonOption:{
@@ -378,6 +393,27 @@ export const initialState = {
           equipment:{
             ...state.currentSelection.equipment,
             audioSystem: null
+      }}}
+    }case "GET_BRAKE":{
+      return{
+        ...state,
+        equipementsPrice : state.equipementsPrice + action.data.price,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            brake: action.data
+       
+      }}}
+    }case "DELETE_BRAKE":{
+      return{
+        ...state,
+        equipementsPrice : state.equipementsPrice - action.data.price,
+        currentSelection:{
+          ...state.currentSelection,
+          equipment:{
+            ...state.currentSelection.equipment,
+            brake: null
       }}}
     }
 

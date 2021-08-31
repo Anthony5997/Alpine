@@ -1,58 +1,62 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getEquipmentInterieur, deleteEquipmentInterieur} from "../../actions";
-import { Carousel, Row, Col, Card, CardTitle, Icon, Button } from 'react-materialize'; 
+import { Carousel, Row, Col, Icon, Button } from 'react-materialize'; 
+import Equipments from "./Equipments";
 import Menu from "../Menu";
 
 
 const EquipmentInterieur = ({state, equipmentInterieur, getEquipmentInterieur, deleteEquipmentInterieur, selectedEquipmentInterieur}) => { 
-    console.log(state)
  
     const mapInterieurJson = () =>
         equipmentInterieur.map((innCustom)=>{
             
             return(
-                <Col key ={innCustom} m={3} s={12} className='itemDriving'>
+                <Col key ={innCustom} m={3} s={12} className={innCustom.price === 0 ? 'itemDriving selected' : 'itemDriving'}>
                  <img src={innCustom.picture}></img>
-                 {
+                {
                   innCustom.price === 0 &&
                      <>
                     <p className='center'><strong>Option intégrée</strong></p>
                     <p className='equipmentName truncate'>{innCustom.name}</p>
                     </>
-                 }
-                  {
-                  innCustom.price !== 0 &&
+                }
+                {
+                    innCustom.price !== 0 &&
                     <>
-                    <p className='equipmentName truncate'>{innCustom.name}</p>
-                    <p>{innCustom.price} <i class='fas fa-comment-dollar'></i> <Button onClick = {()=>getEquipmentInterieur(innCustom)}
-                        className='right'
-                        floating
-                        icon={<Icon>add</Icon>}
-                        small
-                        node="button"
-                        waves="light"
-                    /></p>
+                        <p className='equipmentName truncate'>{innCustom.name}</p>
+                        <p>{innCustom.price} <i class='fas fa-comment-dollar'></i>
+                        <Button onClick = {()=>getEquipmentInterieur(innCustom)}
+                            className="right"
+                            floating
+                            icon={<Icon>add</Icon>}
+                            small                        
+                            node="button"
+                            waves="light"
+                            />
+                        </p>
                     </>
                  }
                 </Col>
             )
         })
-      
     
     const mapInterieurSelected = () =>
          selectedEquipmentInterieur.map((innCustom)=>{
             return(
-                <Col key ={innCustom} m={3} s={12} className='itemDriving'>
+                <Col key ={innCustom} m={3} s={12} className='itemDriving selected'>
                     <img  src={innCustom.picture}></img>
-                   <Button onClick = {()=>deleteEquipmentInterieur(innCustom)}
-                        className="red right deleteInncustom"
-                        floating
-                        icon={<Icon>delete_forever</Icon>}
-                        small                        
-                        node="button"
-                        waves="light"
-                        />
+                    <p className='equipmentName truncate'>{innCustom.name}</p>
+                    <p>{innCustom.price} <i class='fas fa-comment-dollar'></i> 
+                        <Button onClick = {()=>deleteEquipmentInterieur(innCustom)}
+                                className="red right"
+                                floating
+                                icon={<Icon>delete_forever</Icon>}
+                                small                        
+                                node="button"
+                                waves="light"
+                                />
+                    </p>
                 </Col>
             )
          })
@@ -95,23 +99,19 @@ const EquipmentInterieur = ({state, equipmentInterieur, getEquipmentInterieur, d
              </div>
     
             }
-            <Row className='optSelected'>
-            
-                {selectedEquipmentInterieur.length !== 0 && 
-                < >
-                <h3>Options choisis</h3>
-                    {mapInterieurSelected()}
-                    </>
-                }
-            </Row>
             <Row>
-                {   equipmentInterieur.length !== 0 && 
+                {equipmentInterieur.length !== 0 && 
+
                     mapInterieurJson()
                 }
+                {selectedEquipmentInterieur.length !== 0 && 
+                
+                    mapInterieurSelected()
+                
+                }
             </Row>
-    
-    
-        
+            <Equipments />
+
         </div>
     )
 }

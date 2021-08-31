@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Button, Icon } from 'react-materialize';
 import { getTransport , deleteTransport } from "../../actions";
+import Accessories from "./Accessories";
 import Menu from "../Menu";
  
 
@@ -115,6 +116,8 @@ const Transport = ({state, transport, selectedAccessoriesTransport, getTransport
                     mapTransportJson()
                 }
             </Row>
+            <Accessories />
+
         </div>
     )
 }

@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { Row, Col, Button, Carousel, Container } from 'react-materialize';
 import Menu from "./Menu";
+import { getMenu } from "../actions";
 
-const Configurator = ({state}) => {
+const Configurator = ({state, getMenu}) => {
  
 return(
     <div>
@@ -43,7 +44,7 @@ return(
                 />  
             }
             <div className="start-config-button">
-                <Link to="/Couleur">
+                <Link to="/Couleur" onClick={()=>getMenu('color')}>
                     <Button>Commencer la Configuration</Button>
                 </Link>
             </div>
@@ -52,10 +53,10 @@ return(
             <Container>
                 <Row>
                     <Col m={6}>
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/interieur/interieur_desktop.png" alt="homepage car" />
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/interieur/interieur_desktop.png" />
                     </Col>
                     <Col m={6}>
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/A110/Presentation_desktop-1.png" alt="homepage car" />
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/A110/Presentation_desktop-1.png" />
                     </Col>
                 </Row>
             </Container>
@@ -65,10 +66,10 @@ return(
             <h3 className="presentation-info">Perfomances</h3>
             <Row>
                 <Col m={6} >
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/caractВristiques/performance_desktop.png" alt="performance car"/>
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/caractВristiques/performance_desktop.png" />
                 </Col>
                 <Col m={6}>
-                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/caractВristiques/transmission_desktop.png" alt="performance car"/>
+                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/caractВristiques/transmission_desktop.png" />
                 </Col>
             </Row>
             <hr/>
@@ -78,31 +79,31 @@ return(
             <h3 className="presentation-info">Technique</h3>
             <Row >
                 <Col m={6}>
-                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/motorisation/turbo_desktop.png" alt="technique car"/>
+                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/motorisation/turbo_desktop.png" />
                 </Col>
 
                 {state.version === "Pure" &&
                 <Col m={6}>
-                <img className="picture-technique-perf" src="AlpineCars_app-images/sources-homepage/versions/COMPO-PURE.png" alt="technique car" />
+                <img className="picture-technique-perf" src="AlpineCars_app-images/sources-homepage/versions/COMPO-PURE.png" />
                 </Col>
                 }
                 {state.version === "Legende" &&
                 <Col m={6}>
-                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/versions/COMPO-LEGENDE.png" alt="technique car" />
+                <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/versions/COMPO-LEGENDE.png" />
                 </Col>
                 }
             </Row>
             <hr className="border-clean"/>
             <Row>
                 <Col m={4} >
-                    <img className="picture-technique" src="/AlpineCars_app-images/sources-homepage/caractВristiques/dimensions-tech.png" alt="technique car" />
+                    <img className="picture-technique" src="/AlpineCars_app-images/sources-homepage/caractВristiques/dimensions-tech.png" />
                 </Col>
                 <Col m={5}>
-                    <img className="picture-technique" src="/AlpineCars_app-images/sources-homepage/conception/visuel_legerete_2_desktop.jpg" alt="technique car" />
+                    <img className="picture-technique" src="/AlpineCars_app-images/sources-homepage/conception/visuel_legerete_2_desktop.jpg" />
                 </Col>
                 <Col m={3} >
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/technologie/Technical-front-wheel-A110_mobile.jpg" alt="wheel car" />
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/technologie/Technical-rear-wheel-A110_mobile.jpg" alt="wheel car" />
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/technologie/Technical-front-wheel-A110_mobile.jpg" />
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/technologie/Technical-rear-wheel-A110_mobile.jpg" />
                 </Col>
             </Row>
             <hr/>
@@ -112,7 +113,7 @@ return(
             <h3 className="presentation-info">Modele A110</h3>
             <Row>
                 <Col m={7} >
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/A110/Alpine-A110-1.jpg" alt="model A110"/>
+                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/A110/Alpine-A110-1.jpg" alt="modelA110"/>
                 </Col>
                 <Col m={5}>
                 <Carousel
@@ -147,6 +148,7 @@ const mapStateToProps = state =>{
 }
 const mapDispatchToProps = dispatch => {
     return{
+        getMenu: (data)=> dispatch(getMenu(data))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Configurator)

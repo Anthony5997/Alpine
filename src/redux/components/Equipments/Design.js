@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { deleteDesign, getDesign} from "../../actions";
 import { Carousel, Row, Col, Icon, Button } from 'react-materialize'; 
+import Equipments from "./Equipments";
 import Menu from "../Menu";
 
 
@@ -10,7 +11,7 @@ const Design = ({state, getDesign, deleteDesign}) => {
     state.jsonOption.equipment.design.map((design)=>{
         
         return(
-            <Col key ={design} m={6} s={12} className='itemDriving'>
+            <Col key ={design} m={3} s={12} className='itemDriving'>
              <img src={design.picture}></img>
                 <p className='equipmentName truncate'>{design.name}</p>
                 <p>{design.price} <i class='fas fa-comment-dollar'></i> 
@@ -31,12 +32,12 @@ const Design = ({state, getDesign, deleteDesign}) => {
 const mapConfortSelected = () =>
      state.currentSelection.equipment.design.map((design)=>{
         return(
-            <Col key ={design} m={6} s={12} className='itemDriving selected'>
+            <Col key ={design} m={3} s={12} className='itemDriving selected'>
                 <img  src={design.picture}></img>
                 <p className='equipmentName truncate'>{design.name}</p>
                 <p>{design.price} <i class='fas fa-comment-dollar'></i> </p>
                <Button onClick = {()=>deleteDesign(design)}
-                    className="red right deleteInncustom"
+                    className="red right deleteButton"
                     floating
                     icon={<Icon>delete_forever</Icon>}
                     small                        
@@ -92,13 +93,16 @@ const mapConfortSelected = () =>
                </div>
             }
             <Row>
+                
+                {state.jsonOption.equipment.design &&
+                mapDesignJson()}
                 {state.currentSelection.equipment.design &&
                 mapConfortSelected()
                 }
 
-                {state.jsonOption.equipment.design &&
-                mapDesignJson()}
+                
             </Row>
+            <Equipments />
          
         
         </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Button, Icon } from 'react-materialize';
 import { getGarage , deleteGarage } from "../../actions";
+import Accessories from "./Accessories";
 import Menu from "../Menu"; 
  
 
@@ -111,6 +112,8 @@ const Garage = ({state, garage, selectedAccessoriesGarage, getGarage, deleteGara
                     mapGarageJson()
                 }
             </Row>
+            <Accessories />
+
         </div>
     )
 }

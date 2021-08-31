@@ -114,7 +114,7 @@ export const getEquipmentInterieur = (data) => {
 
 export const deleteEquipmentInterieur  = (data) => {
     return{
-       type : 'DELETE_EQUIPMENT_EXT',
+       type : 'DELETE_EQUIPMENT_INT',
        data
     } 
 }
@@ -203,6 +203,36 @@ export const deleteAudioSystem  = (data) => {
        type : 'DELETE_AUDIO',
        data
     }  
+}
+
+export const getBrake = (data) => {
+    return{
+       type : 'GET_BRAKE',
+       data
+    }
+    
+}
+export const deleteBrake  = (data) => {
+    return{
+       type : 'DELETE_BRAKE',
+       data
+    }
+    
+}
+export const getMenu = (data) => {
+    return{
+       type : 'GET_MENU',
+       data
+    }
+    
+}
+
+export const getEquipementPannel = (data) => {
+    return{
+       type : 'GET_EQUIPEMENT_PANNEL',
+       data
+    }
+    
 }
 
 /* ACCESSORIES */ 

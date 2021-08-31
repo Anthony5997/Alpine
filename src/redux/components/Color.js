@@ -2,10 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { Row, Col, Carousel, Button, Icon } from 'react-materialize';
 import { Link } from 'react-router-dom';
-import { parseColorSelected } from "../actions";
+import { parseColorSelected, getMenu } from "../actions";
 import Menu from "./Menu";
 
-const Color = ({state, parseColorSelected}) => {
+const Color = ({state, parseColorSelected, getMenu}) => {
 
     let mappedColor = state.jsonVersion.characteristic
 
@@ -21,9 +21,9 @@ console.log(state)
                 <div className="container">
                     <Col className="custom-color-select" s={6} m={4} >
                        <div className={state.currentSelection.color ? color.color === state.currentSelection.color ? 'selected' : '' : ""} >
-                        <img src={color.rims[0].pictures[0]} onClick={() => (getColor(color))} alt="car color"/>
+                        <img src={color.rims[0].pictures[0]} onClick={() => (getColor(color))} />
                         <p >{color.name}</p>
-                        <p><i className="material-icons">attach_money</i>{color.price}</p>
+                        <p><i class="material-icons">attach_money</i>{color.price}</p>
                        </div>   
                     </Col>
                 </div>
@@ -36,16 +36,16 @@ console.log(state)
             `${pictures}`
         )
     })
-    // const mappedPicsJson = () => state.jsonVersion.pictures.map((pictures) => {
-    //     return (
-    //         `${pictures}`
-    //     )
-    // })
+    const mappedPicsJson = () => state.jsonVersion.pictures.map((pictures) => {
+        return (
+            `${pictures}`
+        )
+    })
 
     return(
        <div className='color'>
         <div className='menu'>
-            <Menu />
+        <Menu />
         </div> 
         <h3 className="car-name">{state.currentSelection.name}</h3>
             {state.currentSelection.color === null &&
@@ -73,12 +73,12 @@ console.log(state)
            }   
             {state.currentSelection.color === null && 
                 <div className='color-carousel'>
-                    <img src={state.jsonVersion.characteristic[0].rims[0].pictures[0]} alt="car rims"></img>
+                    <img src={state.jsonVersion.characteristic[0].rims[0].pictures[0]}></img>
                  </div>
            }  
           
                 {(state.version === "Pure") && (state.currentSelection.color !== null) &&
-                    <Link to="/Jantes" >
+                    <Link to="/Jantes" onClick={()=>getMenu('rims')}>
                         <div className="next-step">
                         <Button node="button" waves="light" className='blue-grey darken-4' >
                             Etape suivante
@@ -90,7 +90,7 @@ console.log(state)
                     </Link>
                 }
             {(state.version === "Legende") && (state.currentSelection.color !== null) &&
-                <Link to="/Sellerie" >
+                <Link to="/Sellerie" onClick={()=>getMenu('sellerie')}>
                     <div className="next-step">
                         <Button node="button" waves="light" className='blue-grey darken-4' >
                             Etape précédente
@@ -113,6 +113,7 @@ const mapDispatchToProps = dispatch => {
     return{
       
         parseColorSelected: (data)=> dispatch(parseColorSelected(data)),
+        getMenu: (data)=> dispatch(getMenu(data))
         
     }
 }

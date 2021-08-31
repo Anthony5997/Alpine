@@ -1,87 +1,91 @@
 {
-    "version":{
-       "pure":{
-          "price":54700,
-            "characteristic":[
-               {
-               "name" :"Peinture opaque Blanc Glacier",
-               "color":"white",
-               "price":0,
-                "rims":[{
-                   "model":"standard",
-                      "price":0,
-                      "pictures":[
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (1).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (2).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (3).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (4).jpg"
-                      ]
-                   },
-                   {
-                   "model": "serac",
-                      "price":1000,
-                      "pictures":[
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (1).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (2).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (3).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (4).jpg"
-                      ]
-                   }
-                  ]
-                },
-             {
-               "name" :"Teinte métallisée Noir Profond",
-               "color":"black",
-               "price":840,
-                "rims":[
-                   {
-                   "model":"standard",
-                      "price":0,
-                      "pictures":[
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (1).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (2).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (3).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (4).jpg"
-                      ]
-                   },
-                   {
-                   "model": "serac",
-                      "price":1000,
-                      "pictures":[
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (1).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (2).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (3).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (4).jpg"
-                      ]
-                   }
-                  ]
-             },
-             {
-             "name" :"Teinte spéciale Bleu Alpine",
-             "color":"blue",
-                "price":1800,
-                "rims":[{
-                   "model":"standard",
-                      "price":0,
-                      "pictures":[
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (1).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (2).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (3).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (4).jpg"
-                      ]
-                   },
-                   {
-                   "model":"serac",
-                      "price":1000,
-                      "pictures":[
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (1).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (2).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (3).jpg",
-                         "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (4).jpg"
-                      ]
-                   }]
-                }
-         ],    
+   "version":{
+      "pure":{
+         "price":54700,
+         "pictures":[
+            "/AlpineCars_app-images/sources-homepage/galerie/A110_PURE_4.jpg",
+            "/AlpineCars_app-images/sources-homepage/galerie/A110_PURE_6.jpg",
+            "/AlpineCars_app-images/sources-homepage/galerie/A110_PURE_8.jpg"
+         ],
+           "characteristic":[
+              {
+              "name" :"Peinture opaque Blanc Glacier",
+              "color":"white",
+              "price":0,
+               "rims":[{
+                  "model":"standard",
+                     "price":0,
+                     "pictures":[
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (1).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (2).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (3).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_standard (4).jpg"
+                     ]
+                  },
+                  {
+                  "model": "serac",
+                     "price":1000,
+                     "pictures":[
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (1).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (2).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (3).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_blanche-jante_serac (4).jpg"
+                     ]
+                  }
+                 ]
+               },
+            {
+              "name" :"Teinte métallisée Noir Profond",
+              "color":"black",
+              "price":840,
+               "rims":[{
+                  "model":"standard",
+                     "price":0,
+                     "pictures":[
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (1).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (2).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (3).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_standard (4).jpg"
+                     ]
+                  },
+                  {
+                  "model": "serac",
+                     "price":1000,
+                     "pictures":[
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (1).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (2).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (3).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_noire-jante_serac (4).jpg"
+                     ]
+                  }
+                 ]
+            },
+            {
+            "name" :"Teinte spéciale Bleu Alpine",
+            "color":"blue",
+               "price":1800,
+               "rims":[{
+                  "model":"standard",
+                     "price":0,
+                     "pictures":[
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (1).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (2).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (3).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_standard (4).jpg"
+                     ]
+                  },
+                  {
+                  "model":"serac",
+                     "price":1000,
+                     "pictures":[
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (1).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (2).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (3).jpg",
+                        "/AlpineCars_app-images/configurateur/modele/pure/modele_pure-couleur_bleu-jante_serac (4).jpg"
+                     ]
+                  }]
+               }
+        ],    
           "sealing":{
             "characteristic":[
                {
@@ -110,10 +114,16 @@
          ,
        "legende":{
           "price":58500,
+          
+          "pictures":[
+            "/AlpineCars_app-images/sources-homepage/galerie/A110_LEGENDE_1.jpg",
+            "/AlpineCars_app-images/sources-homepage/galerie/A110_LEGENDE_5.jpg",
+            "/AlpineCars_app-images/sources-homepage/galerie/A110_LEGENDE_9.jpg"
+         ],
           "characteristic":[
              {
-               "name" :"Peinture opaque Blanc Glacier",
                "color":"white",
+               "name" :"Peinture opaque Blanc Glacier",
                 "price":0,
                 "rims":[{
                    "model": "standard",
@@ -128,8 +138,8 @@
                   ]
                 },
                 {
-                  "name" :"Teinte métallisée Noir Profond",
                 "color":"black",
+                "name" :"Teinte métallisée Noir Profond",
                 "price":840,
                 "rims":[{
                    "model": "standard",
@@ -143,8 +153,8 @@
                    }]
                 },
              {
-               "name" :"Teinte spéciale Bleu Alpine",
              "color":"blue",
+             "name" :"Teinte spéciale Bleu Alpine",
                 "price":1800,
                 "rims":[{
                   "model": "standard",
@@ -183,153 +193,153 @@
           }
        },
     "option":{
-      "equipment":{
-         "design":[
-            {
-               "name":"Pack héritage",
-               "price":180,
-               "picture":"/AlpineCars_app-images/configurateur/equipements/categories/design/pack-heritage.jpg"
-            },
-            {
-               "name":"Repose-pieds passager en aluminium",
-               "price":96,
-               "picture":"/AlpineCars_app-images/configurateur/equipements/categories/design/repose-pied-alu.jpg"
-            }],
+       "equipment":{
+          "design":[
+             {
+                "name":"Pack héritage",
+                "price":180,
+                "picture":"/AlpineCars_app-images/configurateur/equipements/categories/design/pack-heritage.jpg"
+             },
+             {
+                "name":"Repose-pieds passager en aluminium",
+                "price":96,
+                "picture":"/AlpineCars_app-images/configurateur/equipements/categories/design/repose-pied-alu.jpg"
+             }],
 
 
-         "mediaAndNavigation":{
-            "telemetrics":{
-               "name":"Alpine Télémétrics",
-               "price":204,
-               "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/alpine-metrics.jpg"
+          "mediaAndNavigation":{
+             "telemetrics":{
+                "name":"Alpine Télémétrics",
+                "price":204,
+                "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/alpine-metrics.jpg"
+             },
+             "audioSystem":[{
+                "model":"standard",
+                   "name":"Système Audio standard",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/audio-standard.jpg"
+                },
+                {
+                "model":"focal",
+                   "name":"Système Audio Focal",
+                   "price":600,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/audio-focal.jpg"
+                },
+                {
+                "model":"focalPremium",
+                   "name":"Système Audio Focal Premium",
+                   "price":1200,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/audio-premium.jpg"
+                }
+             ]
             },
-            "audioSystem":[{
-               "model":"standard",
-                  "name":"Système Audio standard",
-                  "price":0,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/audio-standard.jpg"
-               },
-               {
-               "model":"focal",
-                  "name":"Système Audio Focal",
-                  "price":600,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/audio-focal.jpg"
-               },
-               {
-               "model":"focalPremium",
-                  "name":"Système Audio Focal Premium",
-                  "price":1200,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/media et navigation/audio-premium.jpg"
-               }
-            ]
-           },
-            "confort":[
-               {
-                  "name":"Retroviseur intérieur électrochrome",
-                  "price":0,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/retro-int-electrochrome.jpg"
-               },
+             "confort":[
+                {
+                   "name":"Retroviseur intérieur électrochrome",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/retro-int-electrochrome.jpg"
+                },
+                
+                {
+                   "name":"Pack de rangement",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/pack-rangement.jpg"
+                },
+                {
+                   "name":"Régulateur / limiteur de vitesse",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/regul-limit-vitesse.jpg"
+                },
+                {
+                   "name":"Rétroviseurs ext. chauf. rabattables élec.",
+                   "price":504,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/retro-ext-chaffant.jpg"
+                }
+             ],
+             "driving":{
+                "parkAssist":[{
+                   
+                      "name":"Aide au stationnement AR",
+                      "price":420,
+                      "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/aide-stationnement-ar.jpg"
+                   },
+                   {
+                      "name":"Aide au stationnement AV et AR",
+                      "price":750,
+                      "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/aide-stationnement-av-ar.jpg"
+                   },
+                   {
+                      "name":"Aide au stationnement AV AR et caméra de recul",
+                      "price":1200,
+                      "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/camera-recul.jpg"
+                   }
+                ],
+                "exhaust":{
+                   "name":"Echappement Sport actif",
+                   "price":1500,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/echappement-sport.jpg"
+                }
+             },
+             "safety":{
+                "brake":[{
+                      "name":"Système de freinage Haute-Perf 320mm",
+                      "price":1000,
+                      "picture":"/AlpineCars_app-images/configurateur/equipements/categories/securite/freinage-haute-perf.jpg"
+                   },
+                   {
+                      "name":"Assistance au freinage d'urgence",
+                      "price":0,
+                      "picture":"/AlpineCars_app-images/configurateur/equipements/categories/securite/aide-freinage-durgence.jpg"
+                   }
+                ],
+                "airbag":{
+                   "name":"Airbags frontaux conducteur et passager",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/securite/airbag.jpg"
+                }
+             },
+             "extCustom":{
+             "stirrups":[{
+                         "name":"Etriers de frein couleur Bleu Alpine",
+                         "price":384,
+                         "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/etrier-bleu.jpg"
+                      },
+                      {
+                         "name":"Etriers de frein couleur Gris Anthracite",
+                         "price":0,
+                         "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/etrier-gris.jpg"
+                      }],
+               "logo":{
+                        "name":"Logo Alpine sur les ailes avant",
+                        "price":120,
+                        "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/logo-alpine.jpg"
+                     }
                
-               {
-                  "name":"Pack de rangement",
-                  "price":0,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/pack-rangement.jpg"
-               },
-               {
-                  "name":"Régulateur / limiteur de vitesse",
-                  "price":0,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/regul-limit-vitesse.jpg"
-               },
-               {
-                  "name":"Rétroviseurs ext. chauf. rabattables élec.",
-                  "price":504,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/confort/retro-ext-chaffant.jpg"
-               }
-            ],
-            "driving":{
-               "parkAssist":[{
-                  
-                     "name":"Aide au stationnement AR",
-                     "price":420,
-                     "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/aide-stationnement-ar.jpg"
                   },
-                  {
-                     "name":"Aide au stationnement AV et AR",
-                     "price":750,
-                     "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/aide-stationnement-av-ar.jpg"
-                  },
-                  {
-                     "name":"Aide au stationnement AV AR et caméra de recul",
-                     "price":1200,
-                     "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/camera-recul.jpg"
-                  }
-               ],
-               "exhaust":{
-                  "name":"Echappement Sport actif",
-                  "price":1500,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/conduite/echappement-sport.jpg"
-               }
-            },
-            "safety":{
-               "brake":[{
-                     "name":"Système de freinage Haute-Perf 320mm",
-                     "price":1000,
-                     "picture":"/AlpineCars_app-images/configurateur/equipements/categories/securite/freinage-haute-perf.jpg"
-                  },
-                  {
-                     "name":"Assistance au freinage d'urgence",
-                     "price":0,
-                     "picture":"/AlpineCars_app-images/configurateur/equipements/categories/securite/aide-freinage-durgence.jpg"
-                  }
-               ],
-               "airbag":{
-                  "name":"Airbags frontaux conducteur et passager",
-                  "price":0,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/securite/airbag.jpg"
-               }
-            },
-            "extCustom":{
-            "stirrups":[{
-                        "name":"Etriers de frein couleur Bleu Alpine",
-                        "price":384,
-                        "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/etrier-bleu.jpg"
-                     },
-                     {
-                        "name":"Etriers de frein couleur Gris Anthracite",
-                        "price":0,
-                        "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/etrier-gris.jpg"
-                     }],
-              "logo":{
-                       "name":"Logo Alpine sur les ailes avant",
-                       "price":120,
-                       "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation exterieure/logo-alpine.jpg"
-                    }
-              
-                 },
-            "innCustom":[ 
-               {
-                  "name":"Harmonie carbone mat",
-                  "price":0,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/pack-carbone.jpg"
-               },
-               {
-                  "name":"Pédalier en aluminium",
-                  "price":120,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/pedal-alu.jpg"
-               },
-              
-               {
-                  "name":"Logo au centre du volant en Bleu Alpine",
-                  "price":84,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/logo-volant.jpg"
-               },
-               {
-                  "name":"Sièges chauffants",
-                  "price":400,
-                  "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/siege-chauffant.jpg"
-               }
-              ]
-            },
+             "innCustom":[ 
+                {
+                   "name":"Harmonie carbone mat",
+                   "price":0,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/pack-carbone.jpg"
+                },
+                {
+                   "name":"Pédalier en aluminium",
+                   "price":120,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/pedal-alu.jpg"
+                },
+               
+                {
+                   "name":"Logo au centre du volant en Bleu Alpine",
+                   "price":84,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/logo-volant.jpg"
+                },
+                {
+                   "name":"Sièges chauffants",
+                   "price":400,
+                   "picture":"/AlpineCars_app-images/configurateur/equipements/categories/personnalisation interieure/siege-chauffant.jpg"
+                }
+               ]
+             },
           "accessories":{
              "transportAndProtection":[{
                    "name":"Extincteur 1kg avec manomètre",
@@ -362,8 +372,7 @@
                    "picture":"/AlpineCars_app-images/configurateur/accessoires/transport et protection/fixation-extincteur.jpg"
                 }
                ],
-             "multimedia":{
-                "support":[{
+             "multimedia":[{
                       "name":"Support caméra sport",
                       "price":89,
                       "picture":"/AlpineCars_app-images/configurateur/accessoires/multimedia/support-camera.jpg"
@@ -373,8 +382,7 @@
                       "price":21,
                       "picture":"/AlpineCars_app-images/configurateur/accessoires/multimedia/support-smartphone.jpg"
                    }
-                  ]
-             },
+                  ],
              "interior":[{
                    "name":"Tapis de coffre",
                    "price":83,

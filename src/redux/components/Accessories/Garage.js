@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Button, Icon } from 'react-materialize';
-import { getGarage , deleteGarage } from "../../actions";
-import Accessories from "./Accessories";
+import { getAccessories, deleteAccessories } from "../../actions";
 import Menu from "../Menu"; 
+import Accessories from "./Accessories";
  
 
-const Garage = ({state, garage, selectedAccessoriesGarage, getGarage, deleteGarage}) => {
+const Garage = ({state, garage, selectedAccessoriesGarage, getAccessories, deleteAccessories}) => {
 
     
     const mapGarageJson = () =>
@@ -14,18 +14,9 @@ const Garage = ({state, garage, selectedAccessoriesGarage, getGarage, deleteGara
             return(
                 <Col key ={garageAccessories} m={3} s={12} className='itemDriving'>
                 <img src={garageAccessories.picture}></img>
-                    {
-                    garageAccessories.price === 0 &&
-                        <>
-                            <p className='center'><strong>Option intégrée</strong></p>
-                            <p className='equipmentName truncate'>{garageAccessories.name}</p>
-                        </>
-                    }
-                    {
-                    garageAccessories.price !== 0 &&
-                        <>
                         <p className='equipmentName truncate'>{garageAccessories.name}</p>
-                        <p>{garageAccessories.price} <i className='fas fa-comment-dollar'></i> <Button onClick = {()=>getGarage(garageAccessories)}
+                        <p>{garageAccessories.price} <i className='fas fa-comment-dollar'></i> 
+                        <Button onClick = {()=>getAccessories('garage',garageAccessories)}
                             className='right'
                             floating
                             icon={<Icon>add</Icon>}
@@ -33,8 +24,7 @@ const Garage = ({state, garage, selectedAccessoriesGarage, getGarage, deleteGara
                             node="button"
                             waves="light"
                         /></p>
-                        </>
-                    }
+                    
                 </Col>
             )
         })
@@ -44,14 +34,16 @@ const Garage = ({state, garage, selectedAccessoriesGarage, getGarage, deleteGara
     return(
         <Col key ={garageCustomAccessories} m={3} s={12} className='itemDriving'>
             <img  src={garageCustomAccessories.picture}></img>
-            <Button onClick = {()=>deleteGarage(garageCustomAccessories)}
-                className="red right deleteInncustom"
+                <p className='equipmentName truncate'>{garageCustomAccessories.name}</p>
+                <p>{garageCustomAccessories.price} <i className='fas fa-comment-dollar'></i> 
+            <Button onClick = {()=>deleteAccessories('garage',garageCustomAccessories)}
+                className="red right"
                 floating
                 icon={<Icon>delete_forever</Icon>}
                 small                        
                 node="button"
                 waves="light"
-                />
+                /></p>
         </Col>
     )
     })
@@ -98,22 +90,17 @@ const Garage = ({state, garage, selectedAccessoriesGarage, getGarage, deleteGara
                     />
                 </div>
             }
-            <Row className='optSelected'>
+            <Row>
             
                 {selectedAccessoriesGarage.length !== 0 && 
-                <>
-                    <h3>Options choisis</h3>
-                    {mapGarageSelected()}
-                </>
+                    mapGarageSelected()
                 }
-            </Row>
-            <Row>
                 {garage.length !== 0 && 
                     mapGarageJson()
                 }
             </Row>
+           
             <Accessories />
-
         </div>
     )
 }
@@ -122,14 +109,14 @@ const mapStateToProps = state =>{
     return{
         state : state,
         garage : state.jsonOption.accessories.garage,
-        selectedAccessoriesGarage: state.currentSelection.accessories.garageAccessories
+        selectedAccessoriesGarage: state.currentSelection.accessories.garage
 
     }
 }
 const mapDispatchToProps = dispatch => {
     return{
-        getGarage: (data) =>  dispatch(getGarage(data)),
-        deleteGarage: (data) =>  dispatch(deleteGarage(data))
+        getAccessories: (component, data) =>  dispatch(getAccessories(component, data)),
+        deleteAccessories: (component, data) =>  dispatch(deleteAccessories(component, data))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Garage)

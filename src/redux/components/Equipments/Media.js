@@ -1,30 +1,30 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Card, CardTitle, Button, Icon } from 'react-materialize'; 
-import { getTelemetrics, deleteTelemetrics, getAudioSystem, deleteAudioSystem} from "../../actions";
-import Equipments from "./Equipments";
+import { getEquipment, deleteEquipment} from "../../actions";
 import Menu from "../Menu";
+import Equipments from "./Equipments";
 
-const Media = ({state, getTelemetrics, deleteTelemetrics, getAudioSystem, deleteAudioSystem}) => {
+const Media = ({state, getEquipment, deleteEquipment}) => {
 
 const onMedia = (selection, data) => {
     if(selection === 'Telemetrics'){
         if(state.currentSelection.equipment.telemetrics === null){
-            getTelemetrics(data)
+            getEquipment('telemetrics', data)
             
         }else{
-            deleteTelemetrics(data)
+            deleteEquipment('telemetrics', data)
         }
     }
     if(selection !== 'Telemetrics'){
 
         if(state.currentSelection.equipment.audioSystem === null){
-            getAudioSystem(data)
+             getEquipment('audioSystem', data)
         }else if(state.currentSelection.equipment.audioSystem !== null){
             if(state.currentSelection.equipment.audioSystem.name === selection){
-            deleteAudioSystem(data)
+                deleteEquipment('audioSystem', data)
             }else{
-                getAudioSystem(data)
+                 getEquipment('audioSystem', data)
             }
         }
     }
@@ -156,7 +156,6 @@ return(
          ))}
         </Row>
         <Equipments />
-
  
    
     
@@ -169,10 +168,8 @@ const mapStateToProps = state =>{
 }
 const mapDispatchToProps = dispatch => {
     return{
-        getTelemetrics: (data) => dispatch(getTelemetrics(data)),
-        getAudioSystem: (data) => dispatch(getAudioSystem(data)),
-        deleteTelemetrics: (data) => dispatch(deleteTelemetrics(data)),
-        deleteAudioSystem: (data) => dispatch(deleteAudioSystem(data)),
+        getEquipment : (component, data) =>dispatch(getEquipment(component, data)),
+        deleteEquipment : (component, data) =>dispatch(deleteEquipment(component, data))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Media)

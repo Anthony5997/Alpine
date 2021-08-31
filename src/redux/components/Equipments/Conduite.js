@@ -1,30 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Card, CardTitle, Button, Icon } from 'react-materialize'; 
-import { getExhaust, getParkAssist, deleteExhaust, deleteParkAssist} from "../../actions";
+import {getEquipment, deleteEquipment} from "../../actions";
 import Menu from "../Menu";
 import Equipments from "./Equipments";
 
-const Conduite = ({state, driving, getExhaust, getParkAssist, deleteExhaust, deleteParkAssist}) => {
+const Conduite = ({state, driving, getEquipment, deleteEquipment}) => {
 
 const onConduite = (selection, data) => {
     if(selection === 'Exhaust'){
         if(state.currentSelection.equipment.exhaust === null){
-            getExhaust(data)
-            
+            getEquipment('exhaust', data)
         }else{
-            deleteExhaust(data)
+            deleteEquipment('exhaust', data)
         }
     }
     if(selection !== 'Exhaust'){
 
         if(state.currentSelection.equipment.parkAssist === null){
-            getParkAssist(data)
+            getEquipment('parkAssist', data)
+            
         }else if(state.currentSelection.equipment.parkAssist !== null){
             if(state.currentSelection.equipment.parkAssist.name === selection){
-            deleteParkAssist(data)
+                deleteEquipment('parkAssist', data)
             }else{
-                getParkAssist(data)
+                getEquipment('parkAssist', data)
             }
         }
     }
@@ -140,7 +140,6 @@ return(
             </Col>
          ))}
         </Row>
-
         <Equipments />
  
    
@@ -155,10 +154,8 @@ const mapStateToProps = state =>{
 }
 const mapDispatchToProps = dispatch => {
     return{
-        getExhaust: (data) => dispatch(getExhaust(data)),
-        getParkAssist: (data) => dispatch(getParkAssist(data)),
-        deleteExhaust: (data) => dispatch(deleteExhaust(data)),
-        deleteParkAssist: (data) => dispatch(deleteParkAssist(data)),
+        getEquipment : (component, data) =>dispatch(getEquipment(component, data)),
+        deleteEquipment : (component, data) =>dispatch(deleteEquipment(component, data))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Conduite)

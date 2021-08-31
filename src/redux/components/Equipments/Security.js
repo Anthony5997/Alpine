@@ -1,21 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Card, CardTitle, Button, Icon } from 'react-materialize'; 
-import { getBrake, deleteBrake} from "../../actions";
-import Equipments from "./Equipments";
+import { getEquipment, deleteEquipment} from "../../actions";
 import Menu from "../Menu";
+import Equipments from "./Equipments";
 
-const Security = ({state, getBrake, deleteBrake}) => {
+const Security = ({state, getEquipment, deleteEquipment}) => {
 
 const onSecurity = (selection, data) => {
   
         if(state.currentSelection.equipment.brake === null){
-            getBrake(data)
+            getEquipment('brake', data )
         }else if(state.currentSelection.equipment.brake !== null){
             if(state.currentSelection.equipment.brake.name === selection){
-            deleteBrake(data)
+                deleteEquipment('brake',data)
             }else{
-                getBrake(data)
+                getEquipment('brake', data )
             }
         }
     }
@@ -96,7 +96,9 @@ return(
          ))}
         </Row>
         <Equipments />
-  
+ 
+   
+    
     </div>
 )}
 const mapStateToProps = state =>{
@@ -106,8 +108,8 @@ const mapStateToProps = state =>{
 }
 const mapDispatchToProps = dispatch => {
     return{
-        getBrake: (data) => dispatch(getBrake(data)),
-        deleteBrake: (data) => dispatch(deleteBrake(data)),
+        getEquipment : (component, data) =>dispatch(getEquipment(component, data)),
+        deleteEquipment : (component, data) =>dispatch(deleteEquipment(component, data))
        
     }
 }

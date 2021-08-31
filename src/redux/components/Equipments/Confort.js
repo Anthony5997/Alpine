@@ -1,13 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { deleteConfort, getConfort} from "../../actions";
+import { getEquipment, deleteEquipment} from "../../actions";
 import { Carousel, Row, Col, Icon, Button } from 'react-materialize'; 
 import Menu from "../Menu";
 import Equipments from "./Equipments";
 
 
-
-const Confort = ({state, getConfort, deleteConfort}) => { 
+const Confort = ({state, getEquipment, deleteEquipment}) => { 
  
     const mapConfortJson = () =>
         state.jsonOption.equipment.confort.map((confort, index)=>{
@@ -28,7 +27,7 @@ const Confort = ({state, getConfort, deleteConfort}) => {
                     <p className='equipmentName truncate'>{confort.name}</p>
                     <p>{confort.price} <i class='fas fa-comment-dollar'></i> 
                         {state.currentSelection.equipment.confort && 
-                        <Button onClick = {()=>deleteConfort(confort)}
+                        <Button onClick = {()=>deleteEquipment('confort',confort)}
                             className='right red'
                             floating
                             icon={<Icon>delete_forever</Icon>}
@@ -37,7 +36,7 @@ const Confort = ({state, getConfort, deleteConfort}) => {
                             waves="light"
                         />}
                         {state.currentSelection.equipment.confort === null && 
-                        <Button onClick = {()=>getConfort(confort)}
+                        <Button onClick = {()=>getEquipment('confort',confort)}
                             className='right'
                             floating
                             icon={<Icon>add</Icon>}
@@ -97,6 +96,7 @@ const Confort = ({state, getConfort, deleteConfort}) => {
                 {mapConfortJson()}
             </Row>
             <Equipments />
+         
     
     
         
@@ -110,8 +110,8 @@ const mapStateToProps = state =>{
 }
 const mapDispatchToProps = dispatch => {
     return{
-        getConfort : (data) => dispatch(getConfort(data)),
-        deleteConfort : (data) => dispatch(deleteConfort(data)),
+        getEquipment : (component, data) =>dispatch(getEquipment(component, data)),
+        deleteEquipment : (component, data) =>dispatch(deleteEquipment(component, data))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Confort)

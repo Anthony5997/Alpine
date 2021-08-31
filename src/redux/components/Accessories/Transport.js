@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Button, Icon } from 'react-materialize';
-import { getTransport , deleteTransport } from "../../actions";
-import Accessories from "./Accessories";
+import { getAccessories, deleteAccessories } from "../../actions";
 import Menu from "../Menu";
+import Accessories from "./Accessories";
  
 
-const Transport = ({state, transport, selectedAccessoriesTransport, getTransport, deleteTransport}) => {
+const Transport = ({state, transport, selectedAccessoriesTransport, getAccessories, deleteAccessories}) => {
 
 
     
@@ -16,18 +16,10 @@ const Transport = ({state, transport, selectedAccessoriesTransport, getTransport
         return(
             <Col key ={transportAccessories} m={3} s={12} className='itemDriving'>
              <img src={transportAccessories.picture}></img>
-             {
-              transportAccessories.price === 0 &&
-                 <>
-                <p className='center'><strong>Option intégrée</strong></p>
+            
                 <p className='equipmentName truncate'>{transportAccessories.name}</p>
-                </>
-             }
-              {
-              transportAccessories.price !== 0 &&
-                <>
-                <p className='equipmentName truncate'>{transportAccessories.name}</p>
-                <p>{transportAccessories.price} <i className='fas fa-comment-dollar'></i> <Button onClick = {()=>getTransport(transportAccessories)}
+                <p>{transportAccessories.price} <i className='fas fa-comment-dollar'></i> 
+                <Button onClick = {()=>getAccessories('transportAndProtection', transportAccessories)}
                     className='right'
                     floating
                     icon={<Icon>add</Icon>}
@@ -35,8 +27,7 @@ const Transport = ({state, transport, selectedAccessoriesTransport, getTransport
                     node="button"
                     waves="light"
                 /></p>
-                </>
-             }
+              
             </Col>
         )
     })
@@ -47,14 +38,16 @@ const Transport = ({state, transport, selectedAccessoriesTransport, getTransport
        return(
            <Col key ={transportCustomAccessories} m={3} s={12} className='itemDriving'>
                <img  src={transportCustomAccessories.picture}></img>
-              <Button onClick = {()=>deleteTransport(transportCustomAccessories)}
+               <p className='equipmentName truncate'>{transportCustomAccessories.name}</p>
+               <p>{transportCustomAccessories.price} <i className='fas fa-comment-dollar'></i> 
+              <Button onClick = {()=>deleteAccessories('transportAndProtection', transportCustomAccessories)}
                    className="red right deleteInncustom"
                    floating
                    icon={<Icon>delete_forever</Icon>}
                    small                        
                    node="button"
                    waves="light"
-                   />
+                   /></p>
            </Col>
        )
     })
@@ -102,22 +95,17 @@ const Transport = ({state, transport, selectedAccessoriesTransport, getTransport
                     />
                 </div>
             }
-            <Row className='optSelected'>
+            <Row>
             
                 {selectedAccessoriesTransport.length !== 0 && 
-                <>
-                    <h3>Options choisis</h3>
-                    {mapTransportSelected()}
-                </>
+                    mapTransportSelected()
                 }
-            </Row>
-            <Row>
                 {transport.length !== 0 && 
                     mapTransportJson()
                 }
             </Row>
+            
             <Accessories />
-
         </div>
     )
 }
@@ -126,14 +114,14 @@ const mapStateToProps = state =>{
     return{
         state : state,
         transport : state.jsonOption.accessories.transportAndProtection,
-        selectedAccessoriesTransport: state.currentSelection.accessories.transport
+        selectedAccessoriesTransport: state.currentSelection.accessories.transportAndProtection
 
     }
 }
 const mapDispatchToProps = dispatch => {
     return{
-        getTransport: (data) =>  dispatch(getTransport(data)),
-        deleteTransport: (data) =>  dispatch(deleteTransport(data))
+        getAccessories: (component, data) =>  dispatch(getAccessories(component, data)),
+        deleteAccessories: (component, data) =>  dispatch(deleteAccessories(component, data))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Transport)

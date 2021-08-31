@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Carousel, Row, Col, Button, Icon } from 'react-materialize';
-import { getExteriorAccessories , deleteExteriorAccessories } from "../../actions"; 
+import { getAccessories, deleteAccessories } from "../../actions"; 
 import Menu from "../Menu";
 import Accessories from "./Accessories";
  
 
-const Exterieur = ({state, exteriorAccessories, selectedAccessoriesExterior, getExteriorAccessories, deleteExteriorAccessories}) => {
+const Exterieur = ({state, exteriorAccessories, selectedAccessoriesExterior, getAccessories, deleteAccessories}) => {
 
 
    
@@ -15,18 +15,10 @@ const Exterieur = ({state, exteriorAccessories, selectedAccessoriesExterior, get
         return(
             <Col key ={exteriorAccessories} m={3} s={12} className='itemDriving'>
              <img src={exteriorAccessories.picture}></img>
-                {
-                exteriorAccessories.price === 0 &&
-                    <>
-                        <p className='center'><strong>Option intégrée</strong></p>
-                        <p className='equipmentName truncate'>{exteriorAccessories.name}</p>
-                    </>
-                }
-                {
-                exteriorAccessories.price !== 0 &&
-                    <>
+        
                     <p className='equipmentName truncate'>{exteriorAccessories.name}</p>
-                    <p>{exteriorAccessories.price} <i className='fas fa-comment-dollar'></i> <Button onClick = {()=>getExteriorAccessories(exteriorAccessories)}
+                    <p>{exteriorAccessories.price} <i className='fas fa-comment-dollar'></i> 
+                    <Button onClick = {()=>getAccessories('exterior',exteriorAccessories)}
                         className='right'
                         floating
                         icon={<Icon>add</Icon>}
@@ -34,8 +26,7 @@ const Exterieur = ({state, exteriorAccessories, selectedAccessoriesExterior, get
                         node="button"
                         waves="light"
                     /></p>
-                    </>
-                }
+                 
             </Col>
         )
     })
@@ -46,14 +37,16 @@ const Exterieur = ({state, exteriorAccessories, selectedAccessoriesExterior, get
        return(
            <Col key ={exteriorCustomAccessories} m={3} s={12} className='itemDriving'>
                <img  src={exteriorCustomAccessories.picture}></img>
-              <Button onClick = {()=>deleteExteriorAccessories(exteriorCustomAccessories)}
-                   className="red right deleteInncustom"
+                    <p className='equipmentName truncate'>{exteriorCustomAccessories.name}</p>
+                    <p>{exteriorCustomAccessories.price} <i className='fas fa-comment-dollar'></i> 
+              <Button onClick = {()=>deleteAccessories('exterior', exteriorCustomAccessories)}
+                   className="red right"
                    floating
                    icon={<Icon>delete_forever</Icon>}
                    small                        
                    node="button"
                    waves="light"
-                   />
+                   /></p>
            </Col>
        )
     })
@@ -101,17 +94,11 @@ const Exterieur = ({state, exteriorAccessories, selectedAccessoriesExterior, get
                     />
                 </div>
             }
-            <Row className='optSelected'>
+            <Row>
             
                 {selectedAccessoriesExterior.length !== 0 && 
-                <>
-                    <h3>Options choisis</h3>
-                    {mapExteriorSelected()}
-                </>
-                }
-            </Row>
-            <Row>
-                {exteriorAccessories.length !== 0 && 
+                    mapExteriorSelected()
+                }  {exteriorAccessories.length !== 0 && 
                     mapExteriorJson()
                 }
             </Row>
@@ -124,13 +111,13 @@ const mapStateToProps = state =>{
     return{
         state : state,
         exteriorAccessories : state.jsonOption.accessories.exterior,
-        selectedAccessoriesExterior: state.currentSelection.accessories.exteriorAccessories
+        selectedAccessoriesExterior: state.currentSelection.accessories.exterior
     }
 }
 const mapDispatchToProps = dispatch => {
     return{
-        getExteriorAccessories: (data) =>  dispatch(getExteriorAccessories(data)),
-        deleteExteriorAccessories: (data) =>  dispatch(deleteExteriorAccessories(data))
+        getAccessories: (component, data) =>  dispatch(getAccessories(component, data)),
+        deleteAccessories: (component, data) =>  dispatch(deleteAccessories(component, data))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Exterieur)

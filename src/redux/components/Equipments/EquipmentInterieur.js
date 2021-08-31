@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getEquipmentInterieur, deleteEquipmentInterieur} from "../../actions";
+import { getEquipmentArray, deleteEquipmentArray} from "../../actions";
 import { Carousel, Row, Col, Icon, Button } from 'react-materialize'; 
-import Equipments from "./Equipments";
 import Menu from "../Menu";
+import Equipments from "./Equipments";
 
 
-const EquipmentInterieur = ({state, equipmentInterieur, getEquipmentInterieur, deleteEquipmentInterieur, selectedEquipmentInterieur}) => { 
+const EquipmentInterieur = ({state, equipmentInterieur, getEquipmentArray, deleteEquipmentArray, selectedEquipmentInterieur}) => { 
+
  
     const mapInterieurJson = () =>
         equipmentInterieur.map((innCustom)=>{
@@ -14,32 +15,35 @@ const EquipmentInterieur = ({state, equipmentInterieur, getEquipmentInterieur, d
             return(
                 <Col key ={innCustom} m={3} s={12} className={innCustom.price === 0 ? 'itemDriving selected' : 'itemDriving'}>
                  <img src={innCustom.picture}></img>
-                {
+                 {
                   innCustom.price === 0 &&
                      <>
                     <p className='center'><strong>Option intégrée</strong></p>
                     <p className='equipmentName truncate'>{innCustom.name}</p>
                     </>
-                }
-                {
-                    innCustom.price !== 0 &&
+                 }
+                  {
+                  innCustom.price !== 0 &&
                     <>
-                        <p className='equipmentName truncate'>{innCustom.name}</p>
-                        <p>{innCustom.price} <i class='fas fa-comment-dollar'></i>
-                        <Button onClick = {()=>getEquipmentInterieur(innCustom)}
-                            className="right"
-                            floating
-                            icon={<Icon>add</Icon>}
-                            small                        
-                            node="button"
-                            waves="light"
-                            />
-                        </p>
+                    <p className='equipmentName truncate'>{innCustom.name}</p>
+                    <p>{innCustom.price} <i class='fas fa-comment-dollar'></i>
+                    <Button onClick = {()=>getEquipmentArray('innCustom',innCustom)}
+                        className="right"
+                        floating
+                        icon={<Icon>add</Icon>}
+                        small                        
+                        node="button"
+                        waves="light"
+                        />
+                    </p>
+
+
                     </>
                  }
                 </Col>
             )
         })
+      
     
     const mapInterieurSelected = () =>
          selectedEquipmentInterieur.map((innCustom)=>{
@@ -48,15 +52,15 @@ const EquipmentInterieur = ({state, equipmentInterieur, getEquipmentInterieur, d
                     <img  src={innCustom.picture}></img>
                     <p className='equipmentName truncate'>{innCustom.name}</p>
                     <p>{innCustom.price} <i class='fas fa-comment-dollar'></i> 
-                        <Button onClick = {()=>deleteEquipmentInterieur(innCustom)}
-                                className="red right"
-                                floating
-                                icon={<Icon>delete_forever</Icon>}
-                                small                        
-                                node="button"
-                                waves="light"
-                                />
-                    </p>
+                   <Button onClick = {()=>deleteEquipmentArray('innCustom',innCustom)}
+                        className="red right"
+                        floating
+                        icon={<Icon>delete_forever</Icon>}
+                        small                        
+                        node="button"
+                        waves="light"
+                        />
+                        </p>
                 </Col>
             )
          })
@@ -99,7 +103,8 @@ const EquipmentInterieur = ({state, equipmentInterieur, getEquipmentInterieur, d
              </div>
     
             }
-            <Row>
+        
+    <Row>
                 {equipmentInterieur.length !== 0 && 
 
                     mapInterieurJson()
@@ -109,9 +114,9 @@ const EquipmentInterieur = ({state, equipmentInterieur, getEquipmentInterieur, d
                     mapInterieurSelected()
                 
                 }
-            </Row>
-            <Equipments />
-
+    </Row>
+    <Equipments />
+        
         </div>
     )
 }
@@ -124,8 +129,8 @@ const mapStateToProps = state =>{
 }
 const mapDispatchToProps = dispatch => {
     return{
-        getEquipmentInterieur : (data) => dispatch(getEquipmentInterieur(data)),
-        deleteEquipmentInterieur : (data) => dispatch(deleteEquipmentInterieur(data)),
+        getEquipmentArray : (component, data) =>dispatch(getEquipmentArray(component, data)),
+        deleteEquipmentArray : (component, data) =>dispatch(deleteEquipmentArray(component, data))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(EquipmentInterieur)

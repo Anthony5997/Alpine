@@ -39,12 +39,12 @@ export const initialState = {
   },
 
 },
-  globalPrice : null,
-  versionColorPrice : null,
+  globalPrice : 0,
+  versionColorPrice : 0,
   rimsPrice : 0,
   sealPrice : 0,
-  equipementsPrice : null,
-  accessoriesPrice : null,
+  equipementsPrice : 0,
+  accessoriesPrice : 0,
 
 }
    
@@ -127,6 +127,7 @@ export const initialState = {
     case "GET_PARKASSIST":{
       let newState = {
         ...state,
+        equipementsPrice : state.equipementsPrice + action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
@@ -138,6 +139,7 @@ export const initialState = {
     case "DELETE_PARKASSIST":{
       let newState = {
         ...state,
+        equipementsPrice : state.equipementsPrice - action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
@@ -150,26 +152,31 @@ export const initialState = {
     case "GET_EXHAUST":{
       let newState ={
         ...state,
+        equipementsPrice : state.equipementsPrice + action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
             ...state.currentSelection.equipment, 
             exhaust: action.data
       }}}
-    return newState}
+    return newState
+  }
     case "DELETE_EXHAUST":{
       let newState ={
         ...state,
+        equipementsPrice : state.equipementsPrice - action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
             ...state.currentSelection.equipment,
             exhaust: null
       }}}
-    return newState}
+    return newState
+  }
     case "GET_CONFORT":{
       return{
         ...state,
+        equipementsPrice : state.equipementsPrice + action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
@@ -181,6 +188,7 @@ export const initialState = {
     case "DELETE_CONFORT":{
       return{
         ...state,
+        equipementsPrice : state.equipementsPrice - action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
@@ -286,6 +294,7 @@ export const initialState = {
       console.log("action logo : ", action.data);
       return{
         ...state,
+        equipementsPrice : state.equipementsPrice + action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
@@ -294,9 +303,11 @@ export const initialState = {
        
       }}}
     }case "DELETE_LOGO":{
+      console.log("DELETE logo : ", action.data);
+
       return{
         ...state,
-        //equipementsPrice : state.equipementsPrice - state.currentSelection.equipment.logo.price,
+        equipementsPrice : state.equipementsPrice - action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
@@ -304,8 +315,11 @@ export const initialState = {
             logo: null
       }}}
     }case "GET_STIRRUPS":{
+      console.log("get stirup price : ", action.data);
+
       return{
         ...state,
+        equipementsPrice : state.equipementsPrice + action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
@@ -316,6 +330,7 @@ export const initialState = {
     }case "DELETE_STIRRUPS":{
       return{
         ...state,
+        equipementsPrice : state.equipementsPrice - action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
@@ -325,6 +340,7 @@ export const initialState = {
     }case "GET_TELEMETRICS":{
       return{
         ...state,
+        equipementsPrice : state.equipementsPrice + action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
@@ -335,6 +351,7 @@ export const initialState = {
     }case "DELETE_TELEMETRICS":{
       return{
         ...state,
+        equipementsPrice : state.equipementsPrice - action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
@@ -344,6 +361,7 @@ export const initialState = {
     }case "GET_AUDIO":{
       return{
         ...state,
+        equipementsPrice : state.equipementsPrice + action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{
@@ -354,6 +372,7 @@ export const initialState = {
     }case "DELETE_AUDIO":{
       return{
         ...state,
+        equipementsPrice : state.equipementsPrice - action.data.price,
         currentSelection:{
           ...state.currentSelection,
           equipment:{

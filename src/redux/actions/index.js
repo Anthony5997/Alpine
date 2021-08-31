@@ -84,9 +84,10 @@ export const getExhaust = (data) => {
     }  
 }
 
-export const deleteExhaust = () => {
+export const deleteExhaust = (data) => {
     return{
        type : 'DELETE_EXHAUST',
+       data
     }   
 }
 
@@ -97,9 +98,10 @@ export const getParkAssist = (data) => {
     }    
 }
 
-export const deleteParkAssist = () => {
+export const deleteParkAssist = (data) => {
     return{
        type : 'DELETE_PARKASSIST',
+       data
     }  
 }
 
@@ -124,9 +126,10 @@ export const getConfort = (data) => {
     }  
 }
 
-export const deleteConfort  = () => {
+export const deleteConfort  = (data) => {
     return{
        type : 'DELETE_CONFORT',
+       data
     }  
 }
 
@@ -153,9 +156,10 @@ export const getStirrups = (data) => {
     }  
 }
 
-export const deleteStirrups  = () => {
+export const deleteStirrups  = (data) => {
     return{
        type : 'DELETE_STIRRUPS',
+       data
     } 
 }
 
@@ -166,9 +170,10 @@ export const getLogo = (data) => {
     }  
 }
 
-export const deleteLogo  = () => {
+export const deleteLogo  = (data) => {
     return{
        type : 'DELETE_LOGO',
+       data
     }  
 }
 
@@ -179,9 +184,10 @@ export const getTelemetrics = (data) => {
     } 
 }
 
-export const deleteTelemetrics = () => {
+export const deleteTelemetrics = (data) => {
     return{
        type : 'DELETE_TELEMETRICS',
+       data
     }  
 }
 
@@ -192,9 +198,10 @@ export const getAudioSystem = (data) => {
     }  
 }
 
-export const deleteAudioSystem  = () => {
+export const deleteAudioSystem  = (data) => {
     return{
        type : 'DELETE_AUDIO',
+       data
     }  
 }
 

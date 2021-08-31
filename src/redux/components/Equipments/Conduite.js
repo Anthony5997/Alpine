@@ -12,7 +12,7 @@ const onConduite = (selection, data) => {
             getExhaust(data)
             
         }else{
-            deleteExhaust()
+            deleteExhaust(data)
         }
     }
     if(selection !== 'Exhaust'){
@@ -21,7 +21,7 @@ const onConduite = (selection, data) => {
             getParkAssist(data)
         }else if(state.currentSelection.equipment.parkAssist !== null){
             if(state.currentSelection.equipment.parkAssist.name === selection){
-            deleteParkAssist()
+            deleteParkAssist(data)
             }else{
                 getParkAssist(data)
             }
@@ -86,7 +86,7 @@ return(
                 {state.currentSelection.equipment.exhaust &&
                         <>
                         {driving.exhaust.name === state.currentSelection.equipment.exhaust.name &&
-                            <Button onClick = {()=>deleteExhaust()}
+                            <Button onClick = {()=>deleteExhaust(state.currentSelection.equipment.exhaust)}
                             className="red right deleteInncustom"
                             floating
                             icon={<Icon>delete_forever</Icon>}
@@ -106,7 +106,7 @@ return(
                         {state.currentSelection.equipment.parkAssist &&
                         <>
                         {driving.parkAssist[`${index}`].name === state.currentSelection.equipment.parkAssist.name &&
-                            <Button onClick = {()=>deleteParkAssist()}
+                            <Button onClick = {()=>deleteParkAssist(state.currentSelection.equipment.parkAssist)}
                             className="red right deleteInncustom"
                             floating
                             icon={<Icon>delete_forever</Icon>}
@@ -134,8 +134,8 @@ const mapDispatchToProps = dispatch => {
     return{
         getExhaust: (data) => dispatch(getExhaust(data)),
         getParkAssist: (data) => dispatch(getParkAssist(data)),
-        deleteExhaust: () => dispatch(deleteExhaust()),
-        deleteParkAssist: () => dispatch(deleteParkAssist()),
+        deleteExhaust: (data) => dispatch(deleteExhaust(data)),
+        deleteParkAssist: (data) => dispatch(deleteParkAssist(data)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Conduite)

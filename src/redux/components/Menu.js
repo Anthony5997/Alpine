@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Menu = ({state}) => {
 
-    console.log("State menu : ", state);
+    console.log("State menu price : ", state.equipementsPrice);
 
     let prixTotal = state.accessoriesPrice + state.globalPrice + state.equipementsPrice;
 

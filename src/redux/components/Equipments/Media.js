@@ -12,7 +12,7 @@ const onMedia = (selection, data) => {
             getTelemetrics(data)
             
         }else{
-            deleteTelemetrics()
+            deleteTelemetrics(data)
         }
     }
     if(selection !== 'Telemetrics'){
@@ -21,7 +21,7 @@ const onMedia = (selection, data) => {
             getAudioSystem(data)
         }else if(state.currentSelection.equipment.audioSystem !== null){
             if(state.currentSelection.equipment.audioSystem.name === selection){
-            deleteAudioSystem()
+            deleteAudioSystem(data)
             }else{
                 getAudioSystem(data)
             }
@@ -86,7 +86,7 @@ return(
                 {state.currentSelection.equipment.telemetrics &&
                         <>
                         {state.jsonOption.equipment.mediaAndNavigation.telemetrics.name === state.currentSelection.equipment.telemetrics.name &&
-                            <Button onClick = {()=>deleteTelemetrics()}
+                            <Button onClick = {()=>deleteTelemetrics(state.currentSelection.equipment.telemetrics)}
                             className="red right deleteInncustom"
                             floating
                             icon={<Icon>delete_forever</Icon>}
@@ -118,7 +118,7 @@ return(
                         {state.currentSelection.equipment.audioSystem &&
                         <>
                         {(state.jsonOption.equipment.mediaAndNavigation.audioSystem[`${index}`].name === state.currentSelection.equipment.audioSystem.name) && (state.currentSelection.equipment.audioSystem.price !== 0)&&
-                            <Button onClick = {()=>deleteAudioSystem()}
+                            <Button onClick = {()=>deleteAudioSystem(state.currentSelection.equipment.audioSystem)}
                             className="red right deleteInncustom"
                             floating
                             icon={<Icon>delete_forever</Icon>}
@@ -145,8 +145,8 @@ const mapDispatchToProps = dispatch => {
     return{
         getTelemetrics: (data) => dispatch(getTelemetrics(data)),
         getAudioSystem: (data) => dispatch(getAudioSystem(data)),
-        deleteTelemetrics: () => dispatch(deleteTelemetrics()),
-        deleteAudioSystem: () => dispatch(deleteAudioSystem()),
+        deleteTelemetrics: (data) => dispatch(deleteTelemetrics(data)),
+        deleteAudioSystem: (data) => dispatch(deleteAudioSystem(data)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Media)

@@ -12,7 +12,7 @@ const onExtCustom = (data, selection) => {
             getLogo(data)
             
         }else{
-            deleteLogo()
+            deleteLogo(data)
         }
     }
     if(selection !== 'logo'){
@@ -21,7 +21,7 @@ const onExtCustom = (data, selection) => {
             getStirrups(data)
         }else if(state.currentSelection.equipment.stirrups !== null){
             if(state.currentSelection.equipment.stirrups.name === data.name){
-            deleteStirrups()
+            deleteStirrups(data)
             }else{
                 getStirrups(data)
             }
@@ -88,7 +88,7 @@ return(
                 {state.currentSelection.equipment.logo &&
                         <>
                         {state.jsonOption.equipment.extCustom.logo.name === state.currentSelection.equipment.logo.name &&
-                            <Button onClick = {()=>deleteLogo()}
+                            <Button onClick = {()=>deleteLogo(state.currentSelection.equipment.logo)}
                             className="red right deleteInncustom"
                             floating
                             icon={<Icon>delete_forever</Icon>}
@@ -120,7 +120,7 @@ return(
                         {state.currentSelection.equipment.stirrups &&
                         <>
                         {(state.jsonOption.equipment.extCustom.stirrups[`${index}`].name === state.currentSelection.equipment.stirrups.name) && (state.currentSelection.equipment.stirrups.price !== 0)&&
-                            <Button onClick = {()=>deleteStirrups()}
+                            <Button onClick = {()=>deleteStirrups(state.currentSelection.equipment.stirrups)}
                             className="red right deleteInncustom"
                             floating
                             icon={<Icon>delete_forever</Icon>}
@@ -148,8 +148,8 @@ const mapDispatchToProps = dispatch => {
     return{
         getLogo: (data) => dispatch(getLogo(data)),
         getStirrups: (data) => dispatch(getStirrups(data)),
-        deleteLogo: () => dispatch(deleteLogo()),
-        deleteStirrups: () => dispatch(deleteStirrups()),
+        deleteLogo: (data) => dispatch(deleteLogo(data)),
+        deleteStirrups: (data) => dispatch(deleteStirrups(data)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(EquipmentExterieur)

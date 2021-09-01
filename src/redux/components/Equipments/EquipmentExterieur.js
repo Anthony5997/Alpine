@@ -6,7 +6,7 @@ import Menu from "../Menu";
 import Equipments from "./Equipments";
 
 const EquipmentExterieur = ({state, getEquipment, deleteEquipment}) => {
-console.log(state)
+    
 const onExtCustom = (data, selection) => {
     if(selection === 'logo'){
         if(state.currentSelection.equipment.logo === null){

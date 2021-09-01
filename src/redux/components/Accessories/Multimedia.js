@@ -7,7 +7,6 @@ import Accessories from "./Accessories";
  
 
 const Multimedia = ({state, multimedia, selectedAccessoriesSupport, getAccessories, deleteAccessories}) => {
-console.log(state)
     
     const mapSupportJson = () =>
     multimedia.map((multimediaSupport)=>{

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Carousel, Row, Col, Card, CardTitle, Button, Icon } from 'react-materialize'; 
+import { Carousel, Row, Col, Button, Icon } from 'react-materialize'; 
 import { getEquipment, deleteEquipment} from "../../actions";
 import Menu from "../Menu";
 import Equipments from "./Equipments";
@@ -55,7 +55,7 @@ return(
 
         <Row>
         <Col m={3} s={12} className='itemDriving selected'>
-                <img src={state.jsonOption.equipment.safety.airbag.picture}></img>
+                <img alt="airbags pictures" src={state.jsonOption.equipment.safety.airbag.picture}></img>
                 <p className='center'><strong>Option intégrée</strong></p>
                 <p className='equipmentName'>{state.jsonOption.equipment.safety.airbag.name}</p>
               
@@ -64,7 +64,7 @@ return(
          state.jsonOption.equipment.safety.brake.map((equipment, index) => (
             <Col m={3} s={12} key={equipment} onClick={() => onSecurity(equipment.name, equipment)}  className={equipment.price === 0 ? 'selected itemDriving' :
                 state.currentSelection.equipment.brake ? state.jsonOption.equipment.safety.brake[`${index}`].name === state.currentSelection.equipment.brake.name ? 'selected itemDriving' : 'itemDriving' : "itemDriving"}>
-                <img src={equipment.picture}></img>
+                <img alt="equipement picture" src={equipment.picture}></img>
 
                 {equipment.price === 0 &&
                     <>

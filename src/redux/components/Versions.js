@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
  
 const Versions = ({state, getVersion, getResJson}) => {
-console.log(state)
 
     const onColor = (version) => {
       getVersion(version)

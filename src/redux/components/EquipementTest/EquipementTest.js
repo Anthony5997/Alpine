@@ -15,11 +15,11 @@ const mapDispatchToProps = dispatch => {
 }
 
 function EquipementTest ({state, props}){
-    console.log(props);
+   // console.log(props);
 
 
     function handleClick(element){
-        console.log('cliqué cliqué', element);
+       // console.log('cliqué cliqué', element);
     }
 
     function displayCard(){

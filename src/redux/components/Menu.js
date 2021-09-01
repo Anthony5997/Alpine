@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect }from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import { getMenu, getEquipementPannel } from "../actions";
+import { getMenu, getEquipementPannel, getStateFromLocalStorage } from "../actions";
 
-const Menu = ({state, getMenu, getEquipementPannel}) => {
+const Menu = ({state, getMenu, getEquipementPannel, getStateFromLocalStorage}) => {
+
+    useEffect(async() => {
+        await checkState();
+      });
+
+
     let prixTotal = state.accessoriesPrice + state.globalPrice + state.equipementsPrice;
     function selectColor(){
 
@@ -14,6 +20,17 @@ const Menu = ({state, getMenu, getEquipementPannel}) => {
 
         getMenu(menu);
         getEquipementPannel(pannel);
+    }
+
+    const checkState = async() => {
+       let test = {};
+       test = sessionStorage.getItem("currentConfiguration");
+
+        if(Object.keys(state.jsonVersion).length < 1 || state === null ){
+                
+            await getStateFromLocalStorage(JSON.parse(test))
+        }
+
     }
 
 return(
@@ -56,7 +73,8 @@ const mapStateToProps = state =>{
 const mapDispatchToProps = dispatch => {
     return{
         getMenu: (data)=> dispatch(getMenu(data)),
-        getEquipementPannel : (data)=>dispatch(getEquipementPannel(data))
+        getEquipementPannel : (data)=>dispatch(getEquipementPannel(data)),
+        getStateFromLocalStorage : (data)=>dispatch(getStateFromLocalStorage(data))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Menu)

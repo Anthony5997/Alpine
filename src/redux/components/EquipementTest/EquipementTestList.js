@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
 
 function EquipementTestListConnect ({state}){
     
-    console.log(state.jsonOption);
+  // console.log(state.jsonOption);
 
     function displayEquipement(key){
         return (

@@ -8,7 +8,6 @@ import Accessories from "./Accessories";
 
 const Interieur = ({state, innerAccessories,selectedAccessoriesInterieur, getAccessories, deleteAccessories}) => {
 
-    console.log("state inner acces : ", state);
 
     const mapInterieurJson = () =>
     innerAccessories.map((innCustomAccessories)=>{

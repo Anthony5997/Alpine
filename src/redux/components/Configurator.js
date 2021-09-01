@@ -53,7 +53,7 @@ return(
             <Container>
                 <Row>
                     <Col m={6}>
-                    <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/interieur/interieur_desktop.png" />
+                    <img alt="picture in configurator" className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/interieur/interieur_desktop.png" />
                     </Col>
                     <Col m={6}>
                     <img className="picture-technique-perf" src="/AlpineCars_app-images/sources-homepage/A110/Presentation_desktop-1.png" />

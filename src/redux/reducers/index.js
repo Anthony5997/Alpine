@@ -3,7 +3,7 @@ export const initialState = {
   photoPure : '/AlpineCars_app-images/sources-homepage/versions/ALPINE-PURE-1.png',
   photoLegende : '/AlpineCars_app-images/sources-homepage/versions/ALPINE-LEGENDE-1.png',
   jsonVersion : {},
-  jsonOption : {},
+  jsonOption : null,
   isFetching : false,
   rimsJson : [],
   sealingJson : [],
@@ -13,7 +13,7 @@ export const initialState = {
     price : null,
     mainPic : null,
     view : [],
-    rims : {},
+    rims : null,
     sealing : null,
     equipment:{
       innCustom : [],
@@ -47,24 +47,30 @@ export const initialState = {
   };
    
   export const dataStore = (state = initialState, action) => {
-    console.log(action)
       switch (action.type){
        
           case "GET_VERSION":{
-              return{
+            let newState = {};
+            newState = {
                 ...state, 
                 version : action.data
               }
+              sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
+              return newState
           }
           case "GET_RES_JSON":{
-            return{
-              ...state,
-              jsonVersion : action.version,
-              jsonOption : action.option,
-              sealingJson : action.version.sealing.characteristic,
-              globalPrice : action.version.price,
-              isFetching: false
-            }
+        
+              let newState = {};
+              newState = {
+                ...state,
+                jsonVersion : action.version,
+                jsonOption : action.option,
+                sealingJson : action.version.sealing.characteristic,
+                globalPrice : action.version.price,
+                isFetching: false
+              }
+              sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
+            return newState
           }
           case "FETCHING_DATA":{
             return{
@@ -73,7 +79,8 @@ export const initialState = {
             }
           }
           case "CHOOSEN_COLOR":{
-            return{
+            let newState = {};
+            newState = {
               ...state,
               currentSelection : {
                 ...state.currentSelection,
@@ -87,21 +94,40 @@ export const initialState = {
               versionColorPrice : state.jsonVersion.price + action.data.price,
             globalPrice : state.jsonVersion.price + state.rimsPrice + state.sealPrice + action.data.price
             }
+            sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
+            return newState
           }
+
+          case "GET_STATE_FROM_STORAGE":{
+            let newState = {};
+            newState =  action.data
+            
+
+
+            return newState
+          }
+
           case "CHOOSEN_RIMS":{
-            return{
+            
+            let newState = {};
+            newState = {
                 ...state,
                 currentSelection : {
-                ...state.currentSelection,
-                rims : action.data,
-                view: action.data.pictures
-              },
-              rimsPrice : action.data.price,
-              globalPrice : state.versionColorPrice + state.sealPrice + action.data.price
+                  ...state.currentSelection,
+                  rims : action.data,
+                  view: action.data.pictures
+                },
+                rimsPrice : action.data.price,
+                globalPrice : state.versionColorPrice + state.sealPrice + action.data.price
             }
+            
+            sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
+            return newState
           } 
           case "CHOOSEN_SEAL":{
-            return{
+
+            let newState = {};
+            newState = {
               ...state,
               currentSelection : {
                 ...state.currentSelection,
@@ -110,6 +136,8 @@ export const initialState = {
               sealPrice : action.data.price,
               globalPrice : state.versionColorPrice + state.rimsPrice + action.data.price
             }
+            sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
+            return newState
           }  
             case "GET_MENU":{
               return{
@@ -124,6 +152,7 @@ export const initialState = {
             }
          }
           case "GET_EQUIPMENT":{
+
             let newState = {};
 
             if(state.currentSelection.equipment[action.component]){
@@ -138,7 +167,8 @@ export const initialState = {
                     }
                   } 
                 }
-                return newState;
+              sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
+              return newState;
             }else{
               newState = {
                 ...state,
@@ -151,11 +181,14 @@ export const initialState = {
                   }
                 } 
               }
+              sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
               return newState;
             }
           }
           case "DELETE_EQUIPMENT":{
-            return{
+
+            let newState = {};
+            newState = {
               ...state,
               equipementsPrice : state.equipementsPrice - action.data.price,
               currentSelection:{
@@ -166,10 +199,13 @@ export const initialState = {
                   }
                 }
               }
+              sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
+              return newState
             }
   
             case "GET_EQUIPMENT_ARRAY":{
-              return{
+              let newState = {};
+              newState = {
                 ...state,
                 equipementsPrice : state.equipementsPrice + action.data.price,
                 currentSelection:{
@@ -182,20 +218,23 @@ export const initialState = {
                    ...state.jsonOption,
                    equipment:{
                      ...state.jsonOption.equipment,
-                     [action.component]: state.jsonOption.equipment[action.component].filter(equipment => equipment.name != action.data.name)
+                     [action.component]: state.jsonOption.equipment[action.component].filter(equipment => equipment.name !== action.data.name)
                    }
                 }
               }
+              sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
+              return newState
             }
             case "DELETE_EQUIPMENT_ARRAY":{
-              return{
+              let newState = {};
+              newState = {
                 ...state,
                 equipementsPrice : state.equipementsPrice - action.data.price,
                 currentSelection:{
                   ...state.currentSelection,
                   equipment:{
                     ...state.currentSelection.equipment,
-                    [action.component]: state.currentSelection.equipment[action.component].filter(equipment => equipment.name != action.data.name),
+                    [action.component]: state.currentSelection.equipment[action.component].filter(equipment => equipment.name !== action.data.name),
                   }}, 
                   jsonOption:{
                     ...state.jsonOption,
@@ -205,9 +244,12 @@ export const initialState = {
                     }
                   }
                }
+              sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
+              return newState
               }
               case "GET_ACCESSORIES":{
-                return{
+                let newState = {};
+                newState = {
                   ...state,
                   accessoriesPrice : state.accessoriesPrice + action.data.price,
                   currentSelection:{
@@ -217,24 +259,27 @@ export const initialState = {
                       [action.component]: state.currentSelection.accessories[action.component].concat(action.data),
                     }
                   }, 
-                    jsonOption:{
+                  jsonOption:{
                      ...state.jsonOption,
-                     accessories:{
-                      ...state.jsonOption.accessories,
-                      [action.component]: state.jsonOption.accessories[action.component].filter(accessorie => accessorie.name !== action.data.name)
-                     }
+                    accessories:{
+                    ...state.jsonOption.accessories,
+                    [action.component]: state.jsonOption.accessories[action.component].filter(accessorie => accessorie.name !== action.data.name)
                     }
                   }
                 }
+              sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
+                return newState
+                }
               case "DELETE_ACCESSORIES":{
-                return{
+                let newState = {};
+                newState = {
                   ...state,
                   accessoriesPrice : state.accessoriesPrice - action.data.price,
                   currentSelection:{
                     ...state.currentSelection,
                     accessories:{
                       ...state.currentSelection.accessories,
-                      [action.component]: state.currentSelection.accessories[action.component].filter(equipment => equipment.name != action.data.name),
+                      [action.component]: state.currentSelection.accessories[action.component].filter(equipment => equipment.name !== action.data.name),
                     }}, 
                     jsonOption:{
                       ...state.jsonOption,
@@ -244,7 +289,9 @@ export const initialState = {
                       }
                     }
                  }
-                }
+                sessionStorage.setItem("currentConfiguration", JSON.stringify(newState))
+                return newState
+              }
               
           default:
             return state

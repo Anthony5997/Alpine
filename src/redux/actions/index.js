@@ -1,4 +1,5 @@
 export const getDataVersion = (data) => {
+
     return{
        type : 'GET_VERSION',
         data 
@@ -10,6 +11,15 @@ export const getData = () => {
     return {
         type : 'FETCHING_DATA'
     }
+}
+
+export const getStateFromLocalStorage = (data) => {
+
+    return {
+        type : 'GET_STATE_FROM_STORAGE',
+        data
+    }
+
 }
 
 

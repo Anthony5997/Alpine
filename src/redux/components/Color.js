@@ -7,10 +7,9 @@ import Menu from "./Menu";
 
 const Color = ({state, parseColorSelected, getMenu}) => {
 
-    let mappedColor = state.jsonVersion.characteristic
+    let mappedColor = Object.keys(state.jsonVersion).length ? state.jsonVersion.characteristic : []
 
     const getColor = (currentSelect) => {
-console.log(state)
             parseColorSelected(currentSelect)
     }
 
@@ -36,11 +35,7 @@ console.log(state)
             `${pictures}`
         )
     })
-    const mappedPicsJson = () => state.jsonVersion.pictures.map((pictures) => {
-        return (
-            `${pictures}`
-        )
-    })
+
 
     return(
        <div className='color'>
@@ -71,11 +66,11 @@ console.log(state)
                     /> 
                  </div>
            }   
-            {state.currentSelection.color === null && 
+            {/* {state.currentSelection.color === null && 
                 <div className='color-carousel'>
                     <img src={state.jsonVersion.characteristic[0].rims[0].pictures[0]}></img>
                  </div>
-           }  
+           }   */}
           
                 {(state.version === "Pure") && (state.currentSelection.color !== null) &&
                     <Link to="/Jantes" onClick={()=>getMenu('rims')}>

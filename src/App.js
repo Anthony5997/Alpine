@@ -13,7 +13,6 @@ import Summary from './redux/components/Summary';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Configurator from './redux/components/Configurator';
 import { Navbar, Icon, NavItem } from 'react-materialize';
-import EquipementTestList from './redux/components/EquipementTest/EquipementTestList';
 import Conduite from './redux/components/Equipments/Conduite';
 import Confort from './redux/components/Equipments/Confort';
 import Design from './redux/components/Equipments/Design';

@@ -8,7 +8,6 @@ import Menu from "./Menu";
 
 
 const Rims = ({state, parseRimsSelected, getMenu}) => {
-console.log(state)
 
     let mappedRims = state.rimsJson
 
@@ -23,7 +22,7 @@ console.log(state)
                 <div className="container">
                     <Col className="custom-color-select" s={6} m={6} >
                        <div className={state.currentSelection.rims ? rims.model === state.currentSelection.rims.model ? 'selected' : '' : ""} >
-                       <img src={rims.pictures[0]} onClick={() => (getRims(rims))}/>
+                       <img alt="rims pictures" src={rims.pictures[0]} onClick={() => (getRims(rims))}/>
                        {rims.model}
                        <br/>
                        <i class="material-icons">attach_money</i>{rims.price}
@@ -34,9 +33,9 @@ console.log(state)
         )
     })
 
-    const mappedPics = () => state.currentSelection.view.map((key) => {
+    const mappedPics = () => state.currentSelection.view.map((pictures) => {
         return (
-            `${key}`
+            `${pictures}`
         )
     })
 
@@ -51,30 +50,20 @@ console.log(state)
                     {displayRims()}
                 </Row>
                 
-            <div className="rims-carousel">
-            <Carousel 
-                    className="carrousel-select"
-                    carouselId="Carousel-2"
-                    images={[
-                    mappedPics()
-                    ]}
-                    options={{
-                        dist: 0,
-                        duration: 200,
-                        fullWidth: true,
-                        indicators: true,
-                        noWrap: false,
-                        numVisible: 5,
-                        onCycleTo: null,
-                        padding: 0,
-                        shift: 0
-                    }}
-                />
-            </div>
-            {state.currentSelection.color === null &&
-                <div className="container">
-                    <h1 className="select-car-please"> Please, select a car.</h1>
-                </div>
+            {state.currentSelection.rims !== null && 
+                <div className="rims-carousel">
+                <Carousel 
+                        className="carrousel-select"
+                        carouselId="Carousel-32"
+                        images={[
+                        mappedPics()
+                        ]}
+                        options={{
+                            fullWidth: true,
+                            indicators: true,
+                        }}
+                        /> 
+                </div>  
             }
             <div className="containerButton">
                     <Link to="/Couleur" onClick={()=>getMenu('color')}>

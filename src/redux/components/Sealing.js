@@ -9,7 +9,6 @@ import Menu from "./Menu";
 
 const Sealing = ({state, parseSealSelected, getMenu, getEquipementPannel}) => {
 
-    console.log("state sealing : ", state);
     let mappedSeal = state.sealingJson
 
     const getSeal = (currentSelect) => {
@@ -22,7 +21,7 @@ const Sealing = ({state, parseSealSelected, getMenu, getEquipementPannel}) => {
                 <div className="container">
                     <Col className="" s={6} m={6} >
                        <div className="custom-color-select">
-                        <img src={seal.picture} onClick={() => (getSeal(seal))}/>
+                        <img alt="seal pictures" src={seal.picture} onClick={() => (getSeal(seal))}/>
                        {seal.name}  <i class="material-icons">attach_money</i>
                         {seal.price}
                        </div>
@@ -57,8 +56,8 @@ const Sealing = ({state, parseSealSelected, getMenu, getEquipementPannel}) => {
             {state.currentSelection.sealing === null && 
                 <div className='sealing-carousel'>
                     <img src={mappedSeal[0].picture}></img>
-                 </div>
-           }  
+                </div>
+            }  
             {state.currentSelection.sealing !== null && 
                 <div className="sealing-carousel">
                     <Carousel 

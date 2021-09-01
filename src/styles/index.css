@@ -92,6 +92,32 @@ nav{
         width: 100%;
     }
     /* MENU */
+
+    #myDIV {
+        width: 100%;
+        padding: 50px 0;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+    .menu-button{
+
+        background-color: rgba(0, 0, 0, 0.501);
+        color: white;
+        position: fixed;
+        border-radius: 15px;
+      
+    }
+
+    .menu-button:focus{
+        background-color: rgba(0, 0, 0, 0.871);
+        
+    }
+    .menu-button:hover{
+        transform: scale(1.1);     
+        transition: 300ms;   
+    }
+      
     .menu{
         position: fixed;
         z-index: 1000;
@@ -145,11 +171,17 @@ nav{
     @media (max-width: 890px) {
         .menu{
             top:10%;
-            left: 70%;
+            left: 60%;
         }
         .linkMenu{
             width: 200px;
         
+        }
+
+        .menu-button{
+
+            top: 10%;
+            left: 80%;
         }
      }
     @media (min-width: 891px) {
@@ -160,6 +192,13 @@ nav{
         .linkMenu{
             width: 200px;
         
+        }
+
+        .menu-button{
+            
+            top: 18%;
+            left: 90%;
+         
         }
      }
 

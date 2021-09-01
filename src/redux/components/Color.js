@@ -65,13 +65,7 @@ const Color = ({state, parseColorSelected, getMenu}) => {
                     }}
                     /> 
                  </div>
-           }   
-            {/* {state.currentSelection.color === null && 
-                <div className='color-carousel'>
-                    <img src={state.jsonVersion.characteristic[0].rims[0].pictures[0]}></img>
-                 </div>
-           }   */}
-          
+           }             
                 {(state.version === "Pure") && (state.currentSelection.color !== null) &&
                     <Link to="/Jantes" onClick={()=>getMenu('rims')}>
                         <div className="next-step">

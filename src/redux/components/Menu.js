@@ -33,8 +33,22 @@ const Menu = ({state, getMenu, getEquipementPannel, getStateFromLocalStorage}) =
 
     }
 
+    const myFunction = () => {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+
 return(
     <div>
+        <button className="menu-button" onClick={ () => myFunction()}>Menu</button>
+
+        <div id="myDIV">
+
+       
             <div className='linkMenu' id={state.menu === "color" ? "menuSelected" : ""}><Link onClick={()=> getMenu("color")} to= "/Couleur"> Couleur <i class="fas fa-palette"></i></Link></div>
             
             {(state.currentSelection.color !== null) && (state.version === "Pure") &&
@@ -63,6 +77,7 @@ return(
             {prixTotal  &&
                 <div className='linkMenu globalPrice'> Prix globale : {prixTotal} <i className='fas fa-comment-dollar'></i></div>
             }
+         </div>
     </div>
 )}
 const mapStateToProps = state =>{

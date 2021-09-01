@@ -53,11 +53,7 @@ const Sealing = ({state, parseSealSelected, getMenu, getEquipementPannel}) => {
            <Row>
                 {displaySeal()}
             </Row>
-            {state.currentSelection.sealing === null && 
-                <div className='sealing-carousel'>
-                    <img src={mappedSeal[0].picture}></img>
-                </div>
-            }  
+         
             {state.currentSelection.sealing !== null && 
                 <div className="sealing-carousel">
                     <Carousel 
@@ -81,7 +77,11 @@ const Sealing = ({state, parseSealSelected, getMenu, getEquipementPannel}) => {
                     />
                 </div>
             }
-
+            {state.currentSelection.color === null &&
+                <div className="container">
+                    <h1 className="select-car-please"> Please, select a car.</h1>
+                </div>
+            }
                  <div className="containerButton">
                     <Link to="/Jantes" onClick={()=>getMenu('rims')}>
                        

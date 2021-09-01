@@ -2,6 +2,8 @@ import React, { useEffect }from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { getMenu, getEquipementPannel, getStateFromLocalStorage } from "../actions";
+import { Button, Modal } from 'react-materialize'; 
+import Summary from "./Summary";
 
 const Menu = ({state, getMenu, getEquipementPannel, getStateFromLocalStorage}) => {
 
@@ -32,23 +34,20 @@ const Menu = ({state, getMenu, getEquipementPannel, getStateFromLocalStorage}) =
         }
 
     }
-
-    const myFunction = () => {
-        var x = document.getElementById("myDIV");
-        if (x.style.display === "none") {
-          x.style.display = "block";
+ 
+    const toggleMenu = () => {
+        var selectedDiv = document.getElementById("toggleMenu");
+        if (selectedDiv.style.display === "none") {
+          selectedDiv.style.display = "block";
         } else {
-          x.style.display = "none";
+          selectedDiv.style.display = "none";
         }
       }
 
 return(
     <div>
-        <button className="menu-button" onClick={ () => myFunction()}>Menu</button>
-
-        <div id="myDIV">
-
-       
+        <button className="menu-button" onClick={ () => toggleMenu()}><i className="fas fa-cog"></i></button>
+        <div id="toggleMenu">
             <div className='linkMenu' id={state.menu === "color" ? "menuSelected" : ""}><Link onClick={()=> getMenu("color")} to= "/Couleur"> Couleur <i class="fas fa-palette"></i></Link></div>
             
             {(state.currentSelection.color !== null) && (state.version === "Pure") &&
@@ -73,11 +72,37 @@ return(
             {state.currentSelection.color === null &&
                 <div onClick={() => selectColor()} className='linkMenu-disable'><Link disabled to= "/Exterieur"> Accessories <i className='fas fa-box-open'></i></Link></div>
             }
-            <div className='linkMenu' id={state.menu === "summary" ? "menuSelected" : ""}><Link onClick={()=> getMenu("summary")} to= "/Récapitulatif"> Récapitulatif <i className='fas fa-clipboard-list'></i></Link></div>
+        
+            <Modal
+            actions={[
+                <Button flat modal="close" node="button" waves="green">Close</Button>
+            ]}
+            bottomSheet={false}
+            fixedFooter={false}
+            id="Modal-10"
+            open={false}
+            className="modalTest"
+            options={{
+                dismissible: true,
+                endingTop: '10%',
+                inDuration: 250,
+                onCloseEnd: null,
+                onCloseStart: null,
+                onOpenEnd: null,
+                onOpenStart: null,
+                opacity: 0.5,
+                outDuration: 250,
+                preventScrolling: true,
+                startingTop: '4%'
+            }}
+            trigger={<Button className='linkMenu recap'  node="button"><Link>Récapitulatif</Link><i className='fas fa-clipboard-list'></i></Button>}
+            >
+            <Summary />
+            </Modal>          
             {prixTotal  &&
                 <div className='linkMenu globalPrice'> Prix globale : {prixTotal} <i className='fas fa-comment-dollar'></i></div>
             }
-         </div>
+        </div>
     </div>
 )}
 const mapStateToProps = state =>{

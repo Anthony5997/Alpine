@@ -1,6 +1,7 @@
 body{
     background-color: #2f4353;
     background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+    overflow-y: auto;
 }
 
 
@@ -93,7 +94,7 @@ nav{
     }
     /* MENU */
 
-    #myDIV {
+    #toggleMenu {
         width: 100%;
         padding: 50px 0;
         text-align: center;
@@ -104,8 +105,11 @@ nav{
 
         background-color: rgba(0, 0, 0, 0.501);
         color: white;
+        font-size: 20px;
         position: fixed;
         border-radius: 15px;
+        padding: 10px;
+
       
     }
 
@@ -127,10 +131,11 @@ nav{
         color: white;
         padding: 10%;
         text-align: left;
+        height: 100%;
+        font-size: 12px;
     
     }
-
-
+    
     .globalPrice{
         background-color: royalblue;        
     }
@@ -191,14 +196,12 @@ nav{
         }
         .linkMenu{
             width: 200px;
-        
         }
 
         .menu-button{
             
-            top: 18%;
+            top: 12%;
             left: 90%;
-         
         }
      }
 
@@ -446,3 +449,47 @@ nav{
             color:white;
             
         }
+
+        /***** Modal *******/
+    .modalTest{
+        min-height: 85%;
+        width: 80%;
+    }
+    .prixSummary{
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 1% 5%;
+        text-align: center;
+    }
+    .resetSummary{
+        margin: 0 auto;
+        padding-top: 3%;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .categorie{
+        font-weight: 500;
+        font-size: 18px;
+        font-style: italic;
+    }
+    .descriptifSummary{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    .imgCategories img{
+        width: 100%;
+    }
+    .descriptifItem{
+        display: flex;
+        align-items: center;
+        text-align: end;
+    }
+
+    .viewModal img{
+        width: 100%;
+    }
